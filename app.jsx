@@ -103,7 +103,7 @@ function App() {
               <div style={{marginTop: 36, display: "flex", gap: 24, flexWrap: "wrap",
                            fontFamily: "var(--mono)", fontSize: 12, color: "var(--ink-mute)"}}>
                 <span>✓ VW · Audi · Škoda · SEAT · Cupra</span>
-                <span>✓ HEX-NET · HEX-V2 · HEX-CAN+CAN</span>
+                <span>✓ HEX-NET · HEX-V2</span>
                 <a href="https://forums.ross-tech.com/index.php?threads/54647/" target="_blank" rel="noopener"
                    style={{color: "var(--accent)", borderBottom: "1px solid currentColor"}}>
                   Original-Thread im Ross-Tech-Forum ↗

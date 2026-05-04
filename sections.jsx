@@ -362,7 +362,7 @@ function FAQSection() {
     { q: "Was bedeutet die 92-Tage-Sperre konkret?",
       a: "Bei wiederholten fehlgeschlagenen Anmeldeversuchen während einer SFD-Sitzung greift ein automatischer Sicherheitsmechanismus auf Backend-Seite. Das Konto wird für einen Zeitraum von bis zu 92 Tagen für SFD-Sitzungen gesperrt. Auto-Scans und sonstige VCDS-Funktionen bleiben verfügbar." },
     { q: "Funktioniert SFD mit älteren Interfaces?",
-      a: "Voraussetzung ist die Beta-Firmware. HEX-NET, HEX-V2 und HEX-CAN+CAN sind unterstützt, sofern sie auf den Beta-Channel umgestellt werden können. Sehr alte Geräte ohne Update-Fähigkeit fallen heraus." },
+      a: "Voraussetzung ist die Beta-Firmware. HEX-NET und HEX-V2 sind unterstützt, sofern sie auf den Beta-Channel umgestellt werden können. Sehr alte Geräte ohne Update-Fähigkeit fallen heraus." },
     { q: "Was kostet der Service?",
       a: "Aktuell befindet sich der Service in der Public-Beta-Phase. Konditionen werden veröffentlicht, sobald sie final festgelegt sind." },
     { q: "Geht das auch bei Porsche, Bentley, Lamborghini?",
