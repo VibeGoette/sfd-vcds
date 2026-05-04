@@ -119,10 +119,9 @@ function CompareSection() {
   ];
   const sfd2Rows = [
     ["Standard-Diagnose", "Fehlerspeicher, Live-Daten — ohne SFD nutzbar", "ok"],
-    ["Service-Funktionen", "SRI, Bremsen, Lenkwinkel — SFD2-geschützt", "no"],
+    ["Service-Funktionen", "SRI, Bremsen, Lenkwinkel — über regulären SFD-Unlock", "ok"],
     ["Coding-Änderungen", "Backend lehnt grundsätzlich ab", "no"],
-    ["Adaption / Retrofit", "Aftermarket-Zugriff nicht vorgesehen", "no"],
-    ["Aktive Sitzung", "Keine VCDS-Sitzung möglich", "no"],
+    ["Adaption / Retrofit", "Aftermarket-Zugriff auf SFD2-Schicht nicht vorgesehen", "no"],
   ];
 
   const RowIcon = ({ kind }) => {
@@ -230,7 +229,7 @@ function VoraussetzungenSection() {
           <div>
             <h3>Kritisch: Erst scannen, dann buchen.</h3>
             <p>
-              Wer den SFD-Service bucht, ohne vorher erfolgreich einen Auto-Scan mit Beta&nbsp;26.5 durchgeführt zu haben, riskiert die automatische Kontosperre durch das Backend. Bei mehreren fehlgeschlagenen Anmeldeversuchen während einer SFD-Sitzung greifen Sicherheitsmechanismen – das Konto kann für <span className="badge-92">bis zu 92 Tage</span> gesperrt werden. Das ist keine Strafe von Ross-Tech, das ist serverseitiger Schutz gegen Brute-Force.
+              Wer den SFD-Service bucht, ohne vorher erfolgreich einen Auto-Scan mit Beta&nbsp;26.5 durchgeführt zu haben, riskiert die automatische Kontosperre durch das Backend. Bei mehreren fehlgeschlagenen Anmeldeversuchen während einer SFD-Sitzung greifen Sicherheitsmechanismen – das Konto kann <span className="badge-92">mehrwöchig</span> für SFD-Sitzungen gesperrt werden. Das ist keine Strafe von Ross-Tech, das ist serverseitiger Schutz gegen Brute-Force.
             </p>
           </div>
         </div>
@@ -252,8 +251,8 @@ function VoraussetzungenSection() {
               : `STATUS: ${Object.values(done).filter(Boolean).length} / 3 ERLEDIGT — NUMMER NOCH GESPERRT`}
           </div>
           {allDone ? (
-            <a href="tel:+492345854580" className="btn btn-primary btn-mono">
-              ☎ +49 (0) 234 58 545 800 <span className="arrow"><Icon.ArrowRight/></span>
+            <a href="tel:+4923458545800" className="btn btn-primary btn-mono">
+              ☎ +49 (0) 234 58 54 58 00 <span className="arrow"><Icon.ArrowRight/></span>
             </a>
           ) : (
             <button className="btn btn-primary btn-mono" disabled
@@ -312,14 +311,14 @@ function UseCasesSection() {
       title: "Inspektion abgeschlossen, SRI klemmt",
       body: "Inspektion durchgeführt, SRI lässt sich nicht zurücksetzen, weil das Bordnetzsteuergerät SFD-geschützt ist. Mit dem Online-Service: Sitzung starten, Steuergerät entsperren, Reset, Sitzung beenden.",
       duration: "Unter 2 Min.",
-      compat: "Nur SFD1",
+      compat: "SFD1 + SFD2",
     },
     {
       tag: "Bremsbelagwechsel",
       title: "Bremsen öffnen",
       body: "Belagwechsel an einem aktuellen Audi mit elektronischer Feststellbremse. Ohne SFD: Bremskolben fahren nicht zurück. Mit dem Online-Service: Wartungsmodus aktivieren, Beläge wechseln, Wartungsmodus deaktivieren.",
       duration: "Mit Wechsel: ~30 Min.",
-      compat: "Nur SFD1",
+      compat: "SFD1 + SFD2",
     },
     {
       tag: "Codierung",
@@ -365,8 +364,8 @@ function FAQSection() {
       a: "Pro Konto wird zum jetzigen Zeitpunkt ein Interface für den SFD-Service aktiviert. Wer mehrere Interfaces besitzt, wählt das Gerät bei der Aktivierung aus." },
     { q: "Bin ich nach dem Kauf sofort einsatzbereit?",
       a: "Ja, sofern alle Voraussetzungen erfüllt sind. Wenn das Interface noch nicht auf Beta-Firmware ist oder die Verifizierung fehlt, wird der Auftrag bei Ross-Tech in der Warteschlange gehalten." },
-    { q: "Was bedeutet die 92-Tage-Sperre konkret?",
-      a: "Bei wiederholten fehlgeschlagenen Anmeldeversuchen während einer SFD-Sitzung greift ein automatischer Sicherheitsmechanismus auf Backend-Seite. Das Konto wird für einen Zeitraum von bis zu 92 Tagen für SFD-Sitzungen gesperrt. Auto-Scans und sonstige VCDS-Funktionen bleiben verfügbar." },
+    { q: "Was bedeutet die Kontosperre konkret?",
+      a: "Bei wiederholten fehlgeschlagenen Anmeldeversuchen während einer SFD-Sitzung greift ein automatischer Sicherheitsmechanismus auf Backend-Seite. Das Konto wird mehrwöchig für SFD-Sitzungen gesperrt. Auto-Scans und sonstige VCDS-Funktionen bleiben verfügbar." },
     { q: "Funktioniert SFD mit älteren Interfaces?",
       a: "Voraussetzung ist die Beta-Firmware. HEX-NET und HEX-V2 sind unterstützt, sofern sie auf den Beta-Channel umgestellt werden können. Sehr alte Geräte ohne Update-Fähigkeit fallen heraus." },
     { q: "Was kostet der Service?",
@@ -459,7 +458,7 @@ function Footer() {
               <li><a href="#impressum">Impressum</a></li>
               <li><a href="#datenschutz">Datenschutz</a></li>
               <li><a href="#kontakt">Kontakt</a></li>
-              <li style={{marginTop: 10}}><a href="tel:+492345854580">Tel: +49 (0) 234 58 545 800</a></li>
+              <li style={{marginTop: 10}}><a href="tel:+4923458545800">Tel: +49 (0) 234 58 54 58 00</a></li>
               <li><a href="mailto:support@vcds.de">support@vcds.de</a></li>
               <li style={{marginTop: 10}}><a href="https://www.ross-tech.com/vcds/download/beta/26-5.php" target="_blank" rel="noopener">VCDS Beta 26.5 Download ↗</a></li>
               <li><a href="https://forums.ross-tech.com/index.php?threads/54647/" target="_blank" rel="noopener">Ross-Tech Forum-Thread ↗</a></li>

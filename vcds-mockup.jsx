@@ -215,9 +215,9 @@ Vielen Dank.`;
     },
     {
       meta: "Selektiv neu eingeführt · koexistent zu SFD1",
-      title: "SFD2 außerhalb Reichweite.",
-      body: "SFD2 ist eine vom Prinzip her andere Architektur: Aftermarket-Tools haben keinen Zugriff. Standard-Diagnose bleibt möglich, alle SFD2-geschützten Funktionen lassen sich mit VCDS aktuell nicht freischalten.",
-      tag: "Nicht via VCDS",
+      title: "Bei SFD2: Coding limitiert.",
+      body: "SFD2 ist eine andere Architektur, die Coding-Änderungen, Adaption und Retrofit auf bestimmten Steuergeräten zusätzlich absichert. Service-Funktionen wie SRI-Reset, Bremsen-Wartungsmodus und Lenkwinkel-Anlernen bleiben über den regulären SFD-Unlock möglich — auch bei SFD2-Fahrzeugen.",
+      tag: "Coding limitiert",
       state: "warn",
     },
     {
