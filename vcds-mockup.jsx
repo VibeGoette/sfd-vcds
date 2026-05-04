@@ -308,10 +308,6 @@ function VCDSScreenshot() {
         className="vcds-shot-img"
         loading="lazy"
       />
-      <div className="vcds-shot-caption">
-        <span className="vcds-shot-dot"></span>
-        VCDS Beta 26.5.0 · 34&#8239;716 Codes Loaded · Online-SFD aktiv
-      </div>
     </div>
   );
 }
