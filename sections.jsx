@@ -378,6 +378,8 @@ function FAQSection() {
       a: "Nein. Weder VCDS noch ODIS können SFD permanent deaktivieren. Die Freischaltung läuft nach 90 Minuten automatisch ab — danach ist eine neue SFD-Sitzung erforderlich." },
     { q: "Warum muss ich einen Ausweis hochladen?",
       a: "VW verlangt 100% Rückverfolgbarkeit aller SFD-Tokens. Ross-Tech ist vertraglich zur Identitätsprüfung verpflichtet. Ohne verifizierte Identität keine SFD-Sitzung." },
+    { q: "Wie lange dauert die Bearbeitung?",
+      a: "1–3 Werktage. Die Identitätsprüfung wird manuell durchgeführt, sobald die Unterlagen vollständig vorliegen. Sobald freigeschaltet, ist das Konto sofort einsatzbereit." },
     { q: "Was ist der Diagnostic Filter?",
       a: "Ein zusätzlicher Schutzmechanismus, der bei neueren Modellen ab MJ 2024 den Zugriff auf Steuergeräte komplett blockiert (in VCDS sichtbar als „-R" am VCID). Erst nach Gateway-Unlock und Filter-Deaktivierung sind die Module im Standard-Modus erreichbar." },
     { q: "Gibt es Nutzungslimits?",
