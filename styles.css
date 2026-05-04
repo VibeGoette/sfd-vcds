@@ -8,9 +8,10 @@
   --ink: #0e1320;
   --ink-dim: #4b5563;
   --ink-mute: #8a909a;
-  --accent: #2b3f68;
-  --accent-2: #3a5489;
-  --accent-ink: #1a2745;
+  --accent: #2C3F69;
+  --accent-2: #3D5589;
+  --accent-ink: #1E2D4D;
+  --accent-soft: #f3f5fa;
   --warn: #c0392b;
   --warn-ink: #7f1d1d;
   --warn-bg: #fef2f2;
@@ -23,7 +24,7 @@
   --bg: #0b0d10; --bg-elev: #14181d; --bg-card: #181d23;
   --line: #262c34; --line-strong: #3a424d;
   --ink: #e8ecef; --ink-dim: #9aa3ad; --ink-mute: #6b7480;
-  --accent: #5b7bb8; --accent-2: #7c98cc; --accent-ink: #d6e0f0;
+  --accent: #6685bd; --accent-2: #8aa4d4; --accent-ink: #d6e0f0; --accent-soft: #161e2e;
   --warn: #f97316; --warn-ink: #fed7aa; --warn-bg: #1a0f08; --warn-border: #7c2d12;
   --ok: #22c55e;
 }
@@ -121,7 +122,9 @@ p  { margin: 0; color: var(--ink-dim); }
 .trust {
   display: grid; grid-template-columns: 1fr;
   gap: 0;
-  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  border-top: 1px solid color-mix(in oklab, var(--accent) 22%, var(--line));
+  border-bottom: 1px solid color-mix(in oklab, var(--accent) 22%, var(--line));
+  background: var(--accent-soft);
   margin-top: 48px;
 }
 @media (min-width: 800px) { .trust { grid-template-columns: repeat(3, 1fr); margin-top: 64px; } }
@@ -222,6 +225,10 @@ p  { margin: 0; color: var(--ink-dim); }
   padding: 22px 20px; position: relative;
 }
 @media (min-width: 720px) { .compare-card { padding: 28px; } }
+.compare-card:not(.limited) {
+  border-color: color-mix(in oklab, var(--accent) 35%, var(--line));
+  background: var(--accent-soft);
+}
 .compare-card.limited { border-color: color-mix(in oklab, var(--warn) 35%, var(--line)); }
 .compare-tag {
   display: inline-flex; align-items: center; gap: 6px;
@@ -370,12 +377,12 @@ p  { margin: 0; color: var(--ink-dim); }
 .usecases { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 16px; }
 @media (min-width: 900px) { .usecases { grid-template-columns: repeat(3, 1fr); gap: 16px; } }
 .uc-card {
-  background: var(--bg-card); border: 1px solid var(--line); border-radius: 6px;
+  background: var(--bg-card); border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: 6px;
   padding: 22px 20px; display: flex; flex-direction: column; gap: 12px;
-  transition: border-color .2s ease;
+  transition: border-color .2s ease, box-shadow .2s ease;
 }
 @media (min-width: 720px) { .uc-card { padding: 28px 26px; } }
-.uc-card:hover { border-color: var(--accent); }
+.uc-card:hover { border-color: var(--accent); box-shadow: 0 4px 16px color-mix(in oklab, var(--accent) 12%, transparent); }
 .uc-tag { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-mute); }
 .uc-card h3 { font-size: 18px; }
 .uc-card p { font-size: 14px; line-height: 1.55; }
