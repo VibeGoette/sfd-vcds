@@ -175,8 +175,8 @@ function CompareSection() {
 }
 
 function VoraussetzungenSection() {
-  const [done, setDone] = useState({a: false, b: false, c: false, d: false});
-  const allDone = done.a && done.b && done.c && done.d;
+  const [done, setDone] = useState({a: false, b: false, c: false, d: false, e: false});
+  const allDone = done.a && done.b && done.c && done.d && done.e;
 
   const items = [
     {
@@ -192,10 +192,15 @@ function VoraussetzungenSection() {
     {
       key: "c",
       title: "VCDS Beta 26.5 (EN) installiert",
-      body: <>Die Online-SFD-Funktionalität ist erst ab <span className="inline-code">Beta&nbsp;26.5 (EN)</span> enthalten. Stable-Versionen und die deutsche Version starten den Service nicht. Interface zusätzlich auf Beta-Firmware-Channel umgestellt.</>,
+      body: <>Die Online-SFD-Funktionalität ist erst ab <span className="inline-code">Beta&nbsp;26.5 (EN)</span> enthalten. Stable-Versionen und die deutsche Version starten den Service nicht.</>,
     },
     {
       key: "d",
+      title: "Interface auf Beta-Firmware-Channel",
+      body: <>Im VCDS-Konfigurator das Interface auf den <span className="inline-code">BETA</span>-Update-Channel umstellen und das Firmware-Update durchführen. Erst danach ist das Interface mit der Beta&nbsp;26.5 kompatibel.</>,
+    },
+    {
+      key: "e",
       title: "SFD-Passwort hinterlegt",
       body: "Bei jeder SFD-Sitzung wird ein zusätzliches, eindeutiges SFD-Passwort abgefragt — nicht das Forum-Passwort. Wird einmal im Ross-Tech-Account gesetzt und ist Pflicht für jeden Sitzungsstart.",
     },
@@ -205,14 +210,14 @@ function VoraussetzungenSection() {
     <section id="voraussetzungen">
       <div className="wrap sec-head">
         <span className="eyebrow"><span className="dot"/>Voraussetzungen</span>
-        <h2>Vier Dinge müssen stimmen, bevor du loslegst.</h2>
-        <p className="lead">Tippe auf die Felder rechts, um deinen Fortschritt abzuhaken. Wenn alle vier erfüllt sind, schalten wir unsere Support-Nummer frei – falls du noch Fragen hast.</p>
+        <h2>Fünf Dinge müssen stimmen, bevor du loslegst.</h2>
+        <p className="lead">Tippe auf die Felder rechts, um deinen Fortschritt abzuhaken. Wenn alle fünf erfüllt sind, schalten wir unsere Support-Nummer frei – falls du noch Fragen hast.</p>
       </div>
       <div className="wrap-tight" style={{paddingBottom: 24}}>
         <div className="checklist">
           {items.map((it, i) => (
             <div key={it.key} className="check-item">
-              <span className="check-num">0{i+1}&nbsp;/&nbsp;04</span>
+              <span className="check-num">0{i+1}&nbsp;/&nbsp;05</span>
               <div className="check-body">
                 <h3>{it.title}</h3>
                 <p>{it.body}</p>
@@ -253,7 +258,7 @@ function VoraussetzungenSection() {
           <div style={{fontFamily: "var(--mono)", fontSize: 13, color: allDone ? "var(--ok)" : "var(--ink-dim)"}}>
             {allDone
               ? "✓ ALLE VORAUSSETZUNGEN ERFÜLLT — SUPPORT-NUMMER FREIGESCHALTET."
-              : `STATUS: ${Object.values(done).filter(Boolean).length} / 4 ERLEDIGT — NUMMER NOCH GESPERRT`}
+              : `STATUS: ${Object.values(done).filter(Boolean).length} / 5 ERLEDIGT — NUMMER NOCH GESPERRT`}
           </div>
           {allDone ? (
             <a href="tel:+4923458545800" className="btn btn-primary btn-mono">
@@ -262,7 +267,7 @@ function VoraussetzungenSection() {
           ) : (
             <button className="btn btn-primary btn-mono" disabled
                     style={{opacity: 0.4, cursor: "not-allowed"}}>
-              🔒 Support-Nummer · alle 4 Häkchen setzen
+              🔒 Support-Nummer · alle 5 Häkchen setzen
             </button>
           )}
         </div>
