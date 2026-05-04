@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>VCDS Online SFD Service – Steuergeräte freischalten</title>
+<meta name="description" content="VCDS Online SFD entsperrt geschützte VAG-Steuergeräte für Service, Codierung und Diagnose. Public Beta seit Mai 2026. Voraussetzungen und Ablauf."/>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="VCDS Online SFD Service – Steuergeräte freischalten"/>
+<meta property="og:description" content="Online-SFD-Service für VCDS: VAG-Steuergeräte direkt aus der Werkstatt entsperren. Public Beta seit 01.05.2026."/>
+<meta property="og:locale" content="de_DE"/>
+<meta name="twitter:card" content="summary_large_image"/>
+
+<link rel="icon" type="image/png" href="vcds-de-logo.png"/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=Fraunces:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+
+<link rel="stylesheet" href="styles.css"/>
+<link rel="stylesheet" href="styles-extra.css"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Brauche ich pro Fahrzeug einen separaten Service?","acceptedAnswer":{"@type":"Answer","text":"Nein. Der SFD-Service ist an das Konto und das Interface gebunden, nicht an ein Fahrzeug."}},
+    {"@type":"Question","name":"Funktioniert der Service offline?","acceptedAnswer":{"@type":"Answer","text":"Nein. Für den Sitzungsstart wird eine aktive Internetverbindung benötigt."}},
+    {"@type":"Question","name":"Was bedeutet die 92-Tage-Sperre konkret?","acceptedAnswer":{"@type":"Answer","text":"Bei wiederholten fehlgeschlagenen Anmeldeversuchen während einer SFD-Sitzung greift ein automatischer Sicherheitsmechanismus auf Backend-Seite."}}
+  ]
+}
+</script>
+</head>
+<body>
+<div id="root"></div>
+<noscript>
+  <div style="padding:48px;font-family:system-ui,sans-serif;max-width:680px;margin:0 auto;">
+    <h1>JavaScript erforderlich</h1>
+    <p>Diese Seite benötigt JavaScript. Bitte aktiviere es in deinem Browser.</p>
+    <p>Bei Fragen: <a href="mailto:support@vcds.de">support@vcds.de</a></p>
+  </div>
+</noscript>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="components.jsx"></script>
+<script type="text/babel" src="vcds-mockup.jsx"></script>
+<script type="text/babel" src="sections.jsx"></script>
+<script type="text/babel" src="app.jsx"></script>
+</body>
+</html>
