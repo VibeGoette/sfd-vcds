@@ -43,7 +43,7 @@ function App() {
           <div className="nav-links">
             <a href="#loesung">Funktionsweise</a>
             <a href="#vergleich">SFD1 vs. SFD2</a>
-            <a href="#vin">VIN-Lookup</a>
+            <a href="#eignung">Eignungs-Check</a>
             <a href="#voraussetzungen">Voraussetzungen</a>
             <a href="#ablauf">Ablauf</a>
             <a href="#faq">FAQ</a>
@@ -66,7 +66,7 @@ function App() {
             <div className="nav-mobile-inner" onClick={e => e.stopPropagation()}>
               <a href="#loesung" onClick={() => setMenuOpen(false)}>Funktionsweise</a>
               <a href="#vergleich" onClick={() => setMenuOpen(false)}>SFD1 vs. SFD2</a>
-              <a href="#vin" onClick={() => setMenuOpen(false)}>VIN-Lookup</a>
+              <a href="#eignung" onClick={() => setMenuOpen(false)}>Eignungs-Check</a>
               <a href="#voraussetzungen" onClick={() => setMenuOpen(false)}>Voraussetzungen</a>
               <a href="#ablauf" onClick={() => setMenuOpen(false)}>Ablauf</a>
               <a href="#faq" onClick={() => setMenuOpen(false)}>FAQ</a>
@@ -149,7 +149,7 @@ function App() {
       <ProblemSection/>
       <LoesungSection/>
       <CompareSection/>
-      <VINDecoder/>
+      <EignungsCheck/>
       <VoraussetzungenSection/>
       <AblaufSection/>
       <UseCasesSection/>

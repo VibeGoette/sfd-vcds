@@ -447,7 +447,7 @@ function Footer() {
             <ul>
               <li><a href="#loesung">Funktionsweise</a></li>
               <li><a href="#vergleich">SFD1 vs. SFD2</a></li>
-              <li><a href="#vin">VIN-Lookup</a></li>
+              <li><a href="#eignung">Eignungs-Check</a></li>
               <li><a href="#voraussetzungen">Voraussetzungen</a></li>
               <li><a href="#ablauf">Ablauf</a></li>
               <li><a href="#faq">FAQ</a></li>

@@ -188,114 +188,108 @@ function VCDSMockup() {
   );
 }
 
-/* === VIN Decoder Mock === */
-function VINDecoder() {
-  const [vin, setVin] = useS3("WAUZZZ8V9MA000123");
-  const [result, setResult] = useS3(null);
-  const [loading, setLoading] = useS3(false);
+/* === Eignungs-Check (Leitsätze + Mail-CTA, ersetzt früheren VIN-Decoder) === */
+function EignungsCheck() {
+  const mailSubject = "Vorab-Prüfung Fahrzeug-Eignung Online-SFD";
+  const mailBody = `Hallo VCDS-Team,
 
-  const decode = (v) => {
-    const clean = (v || "").toUpperCase().trim();
-    if (clean.length < 11) return null;
-    // Year char position 10 (index 9) per WMI convention; we'll simplify
-    const yearChar = clean[9];
-    const yearMap = { L:2020, M:2021, N:2022, P:2023, R:2024, S:2025, T:2026 };
-    const year = yearMap[yearChar] || 2022;
-    const wmi = clean.slice(0,3);
-    const brandMap = {
-      WAU: "Audi", WVW: "Volkswagen", WV1: "VW Nutzfahrzeuge",
-      TMB: "Škoda", VSS: "SEAT", VWV: "Cupra", "3VW": "Volkswagen",
-    };
-    const brand = brandMap[wmi] || "VAG-Konzern";
-    const sfd = year >= 2024 ? "SFD2" : year >= 2020 ? "SFD1" : "kein SFD";
-    return { brand, year, sfd, wmi };
+ich möchte vorab klären, ob mein Fahrzeug für den Online-SFD-Service unterstützt wird.
+
+- Marke: 
+- Modell: 
+- Modelljahr: 
+- VIN (optional, 17-stellig): 
+- Geplante Aktion (Service, Diagnose, Coding, Adaptation): 
+
+Vielen Dank.`;
+  const mailHref = "mailto:support@vcds.de?subject=" + encodeURIComponent(mailSubject) +
+                   "&body=" + encodeURIComponent(mailBody);
+
+  const faustregeln = [
+    {
+      meta: "Modelljahr ≈ 2019 – 2023",
+      title: "Wahrscheinlich SFD1.",
+      body: "VAG-Modelle dieser Jahre laufen mehrheitlich auf SFD1. Service, Diagnose, Coding und Adaptation sind via Online-SFD voll möglich.",
+      tag: "Voll unterstützt",
+      state: "ok",
+    },
+    {
+      meta: "Modelljahr ≈ 2024 +",
+      title: "Zunehmend SFD2.",
+      body: "Neue MEB- und PPE-Modelle migrieren auf SFD2. Service und Diagnose funktionieren weiter — Coding-Änderungen lehnt das VW-Backend serverseitig ab.",
+      tag: "Aktuell limitiert",
+      state: "warn",
+    },
+    {
+      meta: "Pro Steuergerät unterschiedlich",
+      title: "Eindeutig nur per Auto-Scan.",
+      body: "Ein Fahrzeug kann SFD1 und SFD2 mischen — abhängig vom einzelnen Steuergerät. Verbindlich ist immer der Auto-Scan mit VCDS Beta 26.5.",
+      tag: "Verbindlich",
+      state: "neutral",
+    },
+  ];
+
+  const neutralTagStyle = {
+    background: "color-mix(in oklab, var(--ink-mute) 15%, transparent)",
+    color: "var(--ink-mute)",
   };
-
-  const handleDecode = () => {
-    setLoading(true);
-    setResult(null);
-    setTimeout(() => {
-      const r = decode(vin);
-      setResult(r || { error: "VIN unvollständig (mindestens 11 Zeichen)" });
-      setLoading(false);
-    }, 600);
-  };
-
-  useE3(() => { handleDecode(); }, []);
-
-  const sfdColor = result?.sfd === "SFD1" ? "var(--ok)"
-                : result?.sfd === "SFD2" ? "var(--warn)"
-                : "var(--ink-mute)";
 
   return (
-    <section id="vin">
+    <section id="eignung">
       <div className="wrap sec-head">
-        <span className="eyebrow"><span className="dot"/>VIN-Lookup</span>
-        <h2>SFD1 oder SFD2? Im Zweifel <em>kurz prüfen</em>.</h2>
+        <span className="eyebrow"><span className="dot"/>Eignungs-Check</span>
+        <h2>Was heißt das für <em>dein</em> Fahrzeug?</h2>
         <p className="lead">
-          Der finale Status wird stets vom Auto-Scan ausgewiesen — der Lookup hier basiert auf Modelljahr und WMI und liefert in &lt;&nbsp;1&nbsp;Sek. einen ersten Anhaltspunkt.
+          Drei Faustregeln als schnelle Orientierung. Im Zweifel beantworten wir deine Modellfrage per Mail innerhalb eines Werktags — verbindlich bleibt aber stets der Auto-Scan im Fahrzeug.
         </p>
       </div>
+      <div className="wrap" style={{paddingBottom: 32}}>
+        <div style={{display: "flex", flexWrap: "wrap", gap: 16, marginTop: 12}}>
+          {faustregeln.map((f, i) => (
+            <div key={i}
+                 className={"compare-card" + (f.state === "warn" ? " limited" : "")}
+                 style={{flex: "1 1 280px"}}>
+              <span className="compare-tag"
+                    style={f.state === "neutral" ? neutralTagStyle : undefined}>
+                {f.tag}
+              </span>
+              <div className="compare-meta" style={{marginTop: 12, marginBottom: 4}}>{f.meta}</div>
+              <h3>{f.title}</h3>
+              <p style={{fontSize: 15, lineHeight: 1.6, color: "var(--ink-dim)", marginTop: 8}}>
+                {f.body}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
       <div className="wrap-tight" style={{paddingBottom: 80}}>
-        <div className="vin-tool">
-          <div className="vin-input-row">
-            <label className="vin-label">VIN</label>
-            <input
-              className="vin-input"
-              type="text"
-              value={vin}
-              onChange={e => setVin(e.target.value.toUpperCase())}
-              maxLength={17}
-              spellCheck={false}
-              placeholder="WAUZZZ8V9MA000123"
-            />
-            <button className="btn btn-primary btn-mono" onClick={handleDecode}
-                    disabled={loading}>
-              {loading ? "Prüfe…" : "Prüfen"}
-            </button>
+        <div style={{
+          padding: "26px 28px",
+          border: "1px solid var(--accent)",
+          borderRadius: 6,
+          background: "color-mix(in oklab, var(--accent) 7%, var(--bg-elev))",
+          display: "flex", alignItems: "center", justifyContent: "space-between",
+          gap: 24, flexWrap: "wrap",
+        }}>
+          <div style={{maxWidth: "52ch"}}>
+            <div style={{fontFamily: "var(--mono)", fontSize: 12, color: "var(--accent)",
+                         marginBottom: 8, letterSpacing: "0.06em", textTransform: "uppercase"}}>
+              Im Zweifel vorab anfragen
+            </div>
+            <div style={{fontSize: 16, color: "var(--ink)", lineHeight: 1.5}}>
+              Unsicher, ob dein konkretes Modell unterstützt wird? Schick uns Marke, Modell und Modelljahr — Antwort meist innerhalb eines Werktags.
+            </div>
           </div>
-
-          <div className="vin-result">
-            {result?.error && (
-              <div className="vin-error">{result.error}</div>
-            )}
-            {result && !result.error && (
-              <>
-                <div className="vin-cell">
-                  <div className="vin-cell-label">Marke</div>
-                  <div className="vin-cell-value">{result.brand}</div>
-                  <div className="vin-cell-meta">WMI&nbsp;{result.wmi}</div>
-                </div>
-                <div className="vin-cell">
-                  <div className="vin-cell-label">Modelljahr</div>
-                  <div className="vin-cell-value">{result.year}</div>
-                  <div className="vin-cell-meta">Aus VIN-Position 10</div>
-                </div>
-                <div className="vin-cell vin-cell-sfd">
-                  <div className="vin-cell-label">SFD-Variante</div>
-                  <div className="vin-cell-value" style={{color: sfdColor}}>
-                    {result.sfd}
-                  </div>
-                  <div className="vin-cell-meta">
-                    {result.sfd === "SFD1" && "Voll unterstützt"}
-                    {result.sfd === "SFD2" && "Service + Diagnose, Coding limitiert"}
-                    {result.sfd === "kein SFD" && "Keine Freischaltung erforderlich"}
-                  </div>
-                </div>
-              </>
-            )}
-          </div>
-
-          <div className="vin-disclaimer">
-            Hinweis: Indikativ. Verbindlich ist der Auto-Scan im Fahrzeug.
-          </div>
+          <a href={mailHref} className="btn btn-primary btn-mono">
+            ✉ Eignung per Mail anfragen <span className="arrow"><Icon.ArrowRight/></span>
+          </a>
         </div>
       </div>
     </section>
   );
 }
 
-Object.assign(window, { VCDSMockup, VCDSScreenshot, VINDecoder });
+Object.assign(window, { VCDSMockup, VCDSScreenshot, EignungsCheck });
 
 /* === Real VCDS Beta 26.5 Main Screen — wrapped in chrome === */
 function VCDSScreenshot() {
