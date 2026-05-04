@@ -131,7 +131,7 @@ function App() {
             <div className="trust-item">
               <div className="trust-icon"><Icon.Hardware/></div>
               <div className="trust-text">
-                <strong>Alle HEX-Interfaces</strong><br/>
+                <strong>HEX-NET & HEX-V2</strong><br/>
                 mit Beta-Firmware
               </div>
             </div>

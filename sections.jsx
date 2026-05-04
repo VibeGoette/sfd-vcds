@@ -5,17 +5,17 @@ function ProblemSection() {
     <section id="problem">
       <div className="wrap sec-head">
         <span className="eyebrow"><span className="dot"/>Problem</span>
-        <h2>Seit&nbsp;2020 sperrt&nbsp;VW Steuergeräte für&nbsp;Diagnose.</h2>
+        <h2>Ab Modelljahr&nbsp;2020 neu eingeführte Fahrzeugmodelle: Steuergeräte verriegelt.</h2>
       </div>
       <div className="wrap" style={{paddingBottom: 80}}>
         <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap: 48, alignItems:"start"}}
              className="problem-grid">
           <div>
             <p style={{fontSize: 17, lineHeight: 1.6, color: "var(--ink-dim)", marginBottom: 18}}>
-              <strong style={{color: "var(--ink)"}}>SFD</strong> steht für „Schutz Fahrzeug Diagnose". VW, Audi, Škoda, SEAT und Cupra haben damit ab Modelljahr&nbsp;2020 zentrale Steuergeräte gegen unautorisierten Zugriff verriegelt.
+              <strong style={{color: "var(--ink)"}}>SFD</strong> steht für „Schutz Fahrzeug Diagnose". VW, Audi, Škoda, SEAT und Cupra verriegeln damit in allen ab Modelljahr&nbsp;2020 neu eingeführten Fahrzeugmodellen zentrale Steuergeräte gegen unautorisierten Zugriff.
             </p>
             <p style={{fontSize: 17, lineHeight: 1.6, color: "var(--ink-dim)"}}>
-              Ohne SFD-Freischaltung bleiben Routinearbeiten blockiert: Service-Reset nach Inspektion, Hinterradbremsen öffnen für den Belagwechsel, Lenkwinkelsensor anlernen, Adaptionswerte zurücksetzen.
+              Ohne SFD-Freischaltung bleiben Routinearbeiten blockiert: Service-Reset nach Inspektion, Radbremsen öffnen für den Belagwechsel, Lenkwinkelsensor anlernen, Adaptionswerte zurücksetzen.
             </p>
             <p style={{fontSize: 18, lineHeight: 1.5, color: "var(--ink)", marginTop: 32, fontWeight: 500, letterSpacing: "-0.01em"}}>
               Wer keinen Zugang zur Markenwerkstatt hat, hat bisher nicht freigeschaltet. Damit ist jetzt Schluss.
@@ -40,7 +40,7 @@ function ProblemSection() {
               }}>Typische blockierte Operationen</div>
               {[
                 ["Service-Reset (SRI)", "Bordnetz-SG"],
-                ["Bremsbelagwechsel hinten", "EPB-Modul"],
+                ["Bremsbelagwechsel", "Bremsensteuergerät"],
                 ["Lenkwinkelsensor anlernen", "Lenkhilfe-SG"],
                 ["Codierung & Adaption", "diverse"],
                 ["Komfortfunktionen aktivieren", "Komfort-SG"],
@@ -316,8 +316,8 @@ function UseCasesSection() {
     },
     {
       tag: "Bremsbelagwechsel",
-      title: "Hinterradbremsen öffnen",
-      body: "Belagwechsel hinten an einem aktuellen Audi mit elektronischer Feststellbremse. Ohne SFD: Bremskolben fahren nicht zurück. Mit dem Online-Service: Wartungsmodus aktivieren, Beläge wechseln, Wartungsmodus deaktivieren.",
+      title: "Radbremsen öffnen",
+      body: "Belagwechsel an einem aktuellen Audi mit elektronischer Feststellbremse. Ohne SFD: Bremskolben fahren nicht zurück. Mit dem Online-Service: Wartungsmodus aktivieren, Beläge wechseln, Wartungsmodus deaktivieren.",
       duration: "Mit Wechsel: ~30 Min.",
       compat: "SFD1 + SFD2",
     },
