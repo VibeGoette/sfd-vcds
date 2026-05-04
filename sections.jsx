@@ -15,7 +15,7 @@ function ProblemSection() {
               <strong style={{color: "var(--ink)"}}>SFD</strong> steht für „Schutz Fahrzeug Diagnose". VW, Audi, Škoda, SEAT und Cupra verriegeln damit in allen ab Modelljahr&nbsp;2020 neu eingeführten Fahrzeugmodellen zentrale Steuergeräte gegen unautorisierten Zugriff.
             </p>
             <p style={{fontSize: 17, lineHeight: 1.6, color: "var(--ink-dim)"}}>
-              Ohne SFD-Freischaltung bleiben Routinearbeiten blockiert: Service-Reset nach Inspektion, Radbremsen öffnen für den Belagwechsel, Lenkwinkelsensor anlernen, Adaptionswerte zurücksetzen.
+              Ohne SFD-Freischaltung bleiben Routinearbeiten blockiert: Service-Reset nach Inspektion, Bremsen öffnen für den Belagwechsel, Lenkwinkelsensor anlernen, Adaptionswerte zurücksetzen.
             </p>
             <p style={{fontSize: 18, lineHeight: 1.5, color: "var(--ink)", marginTop: 32, fontWeight: 500, letterSpacing: "-0.01em"}}>
               Wer keinen Zugang zur Markenwerkstatt hat, hat bisher nicht freigeschaltet. Damit ist jetzt Schluss.
@@ -40,11 +40,11 @@ function ProblemSection() {
               }}>Typische blockierte Operationen</div>
               {[
                 ["Service-Reset (SRI)", "Bordnetz-SG"],
-                ["Bremsbelagwechsel", "Bremsensteuergerät"],
+                ["Bremsbelagwechsel", "Bremsen-SG"],
                 ["Lenkwinkelsensor anlernen", "Lenkhilfe-SG"],
-                ["Codierung & Adaption", "diverse"],
+                ["Codierung & Adaption", "diverse SGs"],
                 ["Komfortfunktionen aktivieren", "Komfort-SG"],
-                ["Anhängerkupplung freischalten", "Gateway"],
+                ["Anhängerkupplung freischalten", "Gateway-SG"],
               ].map(([op, mod], i) => (
                 <div key={i} style={{
                   display: "grid",
@@ -316,7 +316,7 @@ function UseCasesSection() {
     },
     {
       tag: "Bremsbelagwechsel",
-      title: "Radbremsen öffnen",
+      title: "Bremsen öffnen",
       body: "Belagwechsel an einem aktuellen Audi mit elektronischer Feststellbremse. Ohne SFD: Bremskolben fahren nicht zurück. Mit dem Online-Service: Wartungsmodus aktivieren, Beläge wechseln, Wartungsmodus deaktivieren.",
       duration: "Mit Wechsel: ~30 Min.",
       compat: "Nur SFD1",
