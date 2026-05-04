@@ -36,7 +36,9 @@ function App() {
       <nav className="nav">
         <div className="wrap nav-inner">
           <div className="brand brand-logo-stack">
-            <img src="vcds-de-logo.png" alt="VCDS.de" className="brand-logo"/>
+            <a href="https://vcds.de" aria-label="Zur VCDS.de-Startseite">
+              <img src="vcds-de-logo.png" alt="VCDS.de" className="brand-logo"/>
+            </a>
             <span className="divider"></span>
             <span className="tag">Online-SFD</span>
           </div>

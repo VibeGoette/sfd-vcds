@@ -450,7 +450,9 @@ function Footer() {
         <div className="footer-grid">
           <div>
             <div className="brand brand-logo-stack">
-              <img src="vcds-de-logo.png" alt="VCDS.de" className="brand-logo" style={{height: 32}}/>
+              <a href="https://vcds.de" aria-label="Zur VCDS.de-Startseite">
+                <img src="vcds-de-logo.png" alt="VCDS.de" className="brand-logo" style={{height: 32}}/>
+              </a>
               <span className="divider"></span>
               <span className="tag">Online-SFD</span>
             </div>
