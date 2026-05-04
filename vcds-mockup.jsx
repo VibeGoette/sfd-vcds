@@ -207,17 +207,17 @@ Vielen Dank.`;
 
   const faustregeln = [
     {
-      meta: "Modelljahr ≈ 2019 – 2023",
-      title: "Wahrscheinlich SFD1.",
-      body: "VAG-Modelle dieser Jahre laufen mehrheitlich auf SFD1. Service, Diagnose, Coding und Adaptation sind via Online-SFD voll möglich.",
+      meta: "Ab Modelljahr 2020 · neu eingeführte Modelle",
+      title: "SFD1 ist die Mehrheit.",
+      body: "Der Großteil der ab MJ 2020 neu eingeführten VAG-Modelle nutzt SFD1 — auch in aktuellen Baujahren. Service, Diagnose, Coding und Adaptation sind via Online-SFD voll möglich.",
       tag: "Voll unterstützt",
       state: "ok",
     },
     {
-      meta: "Modelljahr ≈ 2024 +",
-      title: "Zunehmend SFD2.",
-      body: "Neue MEB- und PPE-Modelle migrieren auf SFD2. Service und Diagnose funktionieren weiter — Coding-Änderungen lehnt das VW-Backend serverseitig ab.",
-      tag: "Aktuell limitiert",
+      meta: "Selektiv neu eingeführt · koexistent zu SFD1",
+      title: "SFD2 außerhalb Reichweite.",
+      body: "SFD2 ist eine vom Prinzip her andere Architektur: Aftermarket-Tools haben keinen Zugriff. Standard-Diagnose bleibt möglich, alle SFD2-geschützten Funktionen lassen sich mit VCDS aktuell nicht freischalten.",
+      tag: "Nicht via VCDS",
       state: "warn",
     },
     {

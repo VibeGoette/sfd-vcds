@@ -118,11 +118,11 @@ function CompareSection() {
     ["Aktive Sitzung", "Bleibt offen bis manuell beendet", "ok"],
   ];
   const sfd2Rows = [
-    ["Service-Funktionen", "SRI-Reset, Bremsen, Lenkwinkel", "ok"],
-    ["Diagnose & Auto-Scan", "Vollzugriff auf Fehlerspeicher", "ok"],
-    ["Coding-Änderungen", "Backend prüft gegen VIN-Konfiguration", "warn"],
-    ["Adaption außerhalb der Soll-Konfig", "Serverseitig abgewiesen", "no"],
-    ["Retrofit-Codierung", "Aktuell nicht freigegeben", "no"],
+    ["Standard-Diagnose", "Fehlerspeicher, Live-Daten — ohne SFD nutzbar", "ok"],
+    ["Service-Funktionen", "SRI, Bremsen, Lenkwinkel — SFD2-geschützt", "no"],
+    ["Coding-Änderungen", "Backend lehnt grundsätzlich ab", "no"],
+    ["Adaption / Retrofit", "Aftermarket-Zugriff nicht vorgesehen", "no"],
+    ["Aktive Sitzung", "Keine VCDS-Sitzung möglich", "no"],
   ];
 
   const RowIcon = ({ kind }) => {
@@ -136,14 +136,14 @@ function CompareSection() {
       <div className="wrap sec-head">
         <span className="eyebrow"><span className="dot"/>Was geht – was nicht</span>
         <h2>SFD ist nicht gleich&nbsp;SFD.</h2>
-        <p className="lead">In welcher Variante das Fahrzeug vorliegt, zeigt der Auto-Scan: <span className="inline-code">SFD1</span> oder <span className="inline-code">SFD2</span> wird pro Steuergerät ausgewiesen.</p>
+        <p className="lead">SFD1 und SFD2 existieren parallel — beide werden weiterhin in neuen Modellen verbaut. Welche Variante ein Steuergerät verwendet, zeigt der Auto-Scan: <span className="inline-code">SFD1</span> oder <span className="inline-code">SFD2</span> wird pro Steuergerät ausgewiesen.</p>
       </div>
       <div className="wrap" style={{paddingBottom: 60}}>
         <div className="compare">
           <div className="compare-card">
             <span className="compare-tag"><Icon.Unlock/> Voll unterstützt</span>
             <h3>SFD1</h3>
-            <div className="compare-meta">Modelljahr 2020 – 2023&nbsp;&middot;&nbsp;typisch</div>
+            <div className="compare-meta">Seit Modelljahr 2020&nbsp;&middot;&nbsp;weiterhin im Einsatz</div>
             <div className="compare-rows">
               {sfd1Rows.map(([t, sub, k], i) => (
                 <div key={i} className="compare-row">
@@ -154,9 +154,9 @@ function CompareSection() {
             </div>
           </div>
           <div className="compare-card limited">
-            <span className="compare-tag"><Icon.Lock/> Limitiert</span>
+            <span className="compare-tag"><Icon.Lock/> Andere Architektur</span>
             <h3>SFD2</h3>
-            <div className="compare-meta">Modelljahr 2024+&nbsp;&middot;&nbsp;typisch</div>
+            <div className="compare-meta">Selektiv neu eingeführt&nbsp;&middot;&nbsp;koexistent zu SFD1</div>
             <div className="compare-rows">
               {sfd2Rows.map(([t, sub, k], i) => (
                 <div key={i} className="compare-row">
@@ -168,7 +168,7 @@ function CompareSection() {
           </div>
         </div>
         <div className="note-block">
-          <strong>SFD2 unterscheidet sich grundlegend von SFD1:</strong> Das Backend von VW prüft jede Änderung gegen die VIN-spezifische Konfiguration. Änderungen außerhalb der vom Hersteller vorgesehenen Konfiguration werden serverseitig abgewiesen. Das ist keine Einschränkung von VCDS – das ist die Architektur von SFD2. Aftermarket-Tools haben aktuell keinen Zugriff auf diese Ebene. Ross-Tech rechnet mit einer Freigabe, ein Zeitrahmen steht nicht fest.
+          <strong>SFD2 ist keine erweiterte Version von SFD1, sondern ein vom Prinzip her anderes Verfahren:</strong> Das Backend von VW prüft jede Änderung gegen die VIN-spezifische Konfiguration. Änderungen außerhalb der vom Hersteller vorgesehenen Konfiguration werden serverseitig abgewiesen. Das ist keine Einschränkung von VCDS – das ist die Architektur von SFD2. Aftermarket-Tools haben aktuell keinen Zugriff auf diese Ebene.
         </div>
       </div>
     </section>
@@ -312,19 +312,19 @@ function UseCasesSection() {
       title: "Inspektion abgeschlossen, SRI klemmt",
       body: "Inspektion durchgeführt, SRI lässt sich nicht zurücksetzen, weil das Bordnetzsteuergerät SFD-geschützt ist. Mit dem Online-Service: Sitzung starten, Steuergerät entsperren, Reset, Sitzung beenden.",
       duration: "Unter 2 Min.",
-      compat: "SFD1 + SFD2",
+      compat: "Nur SFD1",
     },
     {
       tag: "Bremsbelagwechsel",
       title: "Radbremsen öffnen",
       body: "Belagwechsel an einem aktuellen Audi mit elektronischer Feststellbremse. Ohne SFD: Bremskolben fahren nicht zurück. Mit dem Online-Service: Wartungsmodus aktivieren, Beläge wechseln, Wartungsmodus deaktivieren.",
       duration: "Mit Wechsel: ~30 Min.",
-      compat: "SFD1 + SFD2",
+      compat: "Nur SFD1",
     },
     {
       tag: "Codierung",
       title: "Komfortfunktionen anpassen",
-      body: "Bei Fahrzeugen aus Modelljahr 2020 – 2023 mit SFD1: nach der Freischaltung volle Codier- und Adaptions-Rechte. Lichtsignaturen, Komfortfunktionen, Anhängerkupplung – alles wieder zugänglich.",
+      body: "Bei Fahrzeugen mit SFD1 — der Mehrheit ab Modelljahr 2020 — nach der Freischaltung volle Codier- und Adaptions-Rechte. Lichtsignaturen, Komfortfunktionen, Anhängerkupplung – alles wieder zugänglich.",
       duration: "Variabel",
       compat: "Nur SFD1",
     },
