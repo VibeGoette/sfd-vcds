@@ -201,8 +201,8 @@ function VoraussetzungenSection() {
     <section id="voraussetzungen">
       <div className="wrap sec-head">
         <span className="eyebrow"><span className="dot"/>Voraussetzungen</span>
-        <h2>Drei Dinge müssen stimmen, bevor der Service gebucht wird.</h2>
-        <p className="lead">Tippe auf die Felder rechts, um deinen Fortschritt abzuhaken. Wenn alle drei erfüllt sind, ist die Buchung sicher.</p>
+        <h2>Drei Dinge müssen stimmen, bevor du loslegst.</h2>
+        <p className="lead">Tippe auf die Felder rechts, um deinen Fortschritt abzuhaken. Wenn alle drei erfüllt sind, schalten wir unsere Support-Nummer frei – falls du noch Fragen hast.</p>
       </div>
       <div className="wrap-tight" style={{paddingBottom: 24}}>
         <div className="checklist">
@@ -248,13 +248,19 @@ function VoraussetzungenSection() {
         }}>
           <div style={{fontFamily: "var(--mono)", fontSize: 13, color: allDone ? "var(--ok)" : "var(--ink-dim)"}}>
             {allDone
-              ? "✓ ALLE VORAUSSETZUNGEN ERFÜLLT — JETZT IST DER RICHTIGE ZEITPUNKT."
-              : `STATUS: ${Object.values(done).filter(Boolean).length} / 3 ERLEDIGT`}
+              ? "✓ ALLE VORAUSSETZUNGEN ERFÜLLT — SUPPORT-NUMMER FREIGESCHALTET."
+              : `STATUS: ${Object.values(done).filter(Boolean).length} / 3 ERLEDIGT — NUMMER NOCH GESPERRT`}
           </div>
-          <button className="btn btn-primary btn-mono" disabled={!allDone}
-                  style={{opacity: allDone ? 1 : 0.4, cursor: allDone ? "pointer" : "not-allowed"}}>
-            SFD-Service buchen <span className="arrow"><Icon.ArrowRight/></span>
-          </button>
+          {allDone ? (
+            <a href="tel:+492345854580" className="btn btn-primary btn-mono">
+              ☎ +49 (0) 234 58 545 800 <span className="arrow"><Icon.ArrowRight/></span>
+            </a>
+          ) : (
+            <button className="btn btn-primary btn-mono" disabled
+                    style={{opacity: 0.4, cursor: "not-allowed"}}>
+              🔒 Support-Nummer · alle 3 Häkchen setzen
+            </button>
+          )}
         </div>
       </div>
     </section>
@@ -409,8 +415,10 @@ function FinalCTA() {
             </p>
           </div>
           <div className="final-cta-actions">
-            <button className="btn btn-primary">SFD-Service buchen <span className="arrow"><Icon.ArrowRight/></span></button>
-            <button className="btn btn-secondary">Voraussetzungen prüfen</button>
+            <a href="https://forums.ross-tech.com/index.php?threads/54647/" target="_blank" rel="noopener" className="btn btn-primary">
+              Direkt zum Forum von Ross-Tech <span className="arrow"><Icon.ArrowRight/></span>
+            </a>
+            <a href="#voraussetzungen" className="btn btn-secondary">Voraussetzungen prüfen</a>
             <button className="btn btn-secondary btn-mono" onClick={() => window.open("https://www.ross-tech.com/vcds/download/beta/26-5.php", "_blank")}>↓ Beta&nbsp;26.5 herunterladen ↗</button>
           </div>
         </div>

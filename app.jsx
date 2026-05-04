@@ -96,8 +96,10 @@ function App() {
                 Seit Mai&nbsp;2026 öffentlich verfügbar: Der Online-SFD-Service für VCDS entsperrt geschützte Steuergeräte in Fahrzeugen des VAG-Konzerns – direkt aus der Werkstatt, ohne Umweg über den Markenhändler.
               </p>
               <div className="hero-ctas">
-                <button className="btn btn-primary">Jetzt SFD-Service starten <span className="arrow"><Icon.ArrowRight/></span></button>
-                <button className="btn btn-secondary">Voraussetzungen prüfen</button>
+                <a href="https://forums.ross-tech.com/index.php?threads/54647/" target="_blank" rel="noopener" className="btn btn-primary">
+                  Direkt zum Forum von Ross-Tech <span className="arrow"><Icon.ArrowRight/></span>
+                </a>
+                <a href="#voraussetzungen" className="btn btn-secondary">Voraussetzungen prüfen</a>
               </div>
 
               <div style={{marginTop: 36, display: "flex", gap: 24, flexWrap: "wrap",
