@@ -12,7 +12,7 @@ function ProblemSection() {
              className="problem-grid">
           <div>
             <p style={{fontSize: 17, lineHeight: 1.6, color: "var(--ink-dim)", marginBottom: 18}}>
-              <strong style={{color: "var(--ink)"}}>SFD</strong> steht für „Schutz Fahrzeug Diagnose". VW, Audi, Škoda, SEAT und Cupra verriegeln damit in allen ab Modelljahr&nbsp;2020 neu eingeführten Fahrzeugmodellen zentrale Steuergeräte gegen unautorisierten Zugriff.
+              <strong style={{color: "var(--ink)"}}>SFD</strong> steht für „Schutz Fahrzeug Diagnose“. VW, Audi, Škoda, SEAT und Cupra verriegeln damit in allen ab Modelljahr&nbsp;2020 neu eingeführten Fahrzeugmodellen zentrale Steuergeräte gegen unautorisierten Zugriff.
             </p>
             <p style={{fontSize: 17, lineHeight: 1.6, color: "var(--ink-dim)"}}>
               Ohne SFD-Freischaltung bleiben Routinearbeiten blockiert: Service-Reset nach Inspektion, Bremsen öffnen für den Belagwechsel, Lenkwinkelsensor anlernen, Adaptionswerte zurücksetzen.
@@ -381,7 +381,7 @@ function FAQSection() {
     { q: "Wie lange dauert die Bearbeitung?",
       a: "1–3 Werktage. Die Identitätsprüfung wird manuell durchgeführt, sobald die Unterlagen vollständig vorliegen. Sobald freigeschaltet, ist das Konto sofort einsatzbereit." },
     { q: "Was ist der Diagnostic Filter?",
-      a: "Ein zusätzlicher Schutzmechanismus, der bei neueren Modellen ab MJ 2024 den Zugriff auf Steuergeräte komplett blockiert (in VCDS sichtbar als „-R" am VCID). Erst nach Gateway-Unlock und Filter-Deaktivierung sind die Module im Standard-Modus erreichbar." },
+      a: "Ein zusätzlicher Schutzmechanismus, der bei neueren Modellen ab MJ 2024 den Zugriff auf Steuergeräte komplett blockiert (in VCDS sichtbar als „-R“ am VCID). Erst nach Gateway-Unlock und Filter-Deaktivierung sind die Module im Standard-Modus erreichbar." },
     { q: "Gibt es Nutzungslimits?",
       a: "Ja: maximal 50 Anfragen pro Stunde, 250 pro Tag und 20 verschiedene VINs pro Tag. Bei Überschreitung greift die automatische Kontosperre." },
     { q: "Werden meine Aktivitäten protokolliert?",
