@@ -168,7 +168,7 @@ function CompareSection() {
           </div>
         </div>
         <div className="note-block">
-          <strong>SFD2 ist keine erweiterte Version von SFD1, sondern ein vom Prinzip her anderes Verfahren:</strong> Das Backend von VW prüft jede Änderung gegen die VIN-spezifische Konfiguration. Änderungen außerhalb der vom Hersteller vorgesehenen Konfiguration werden serverseitig abgewiesen. Das ist keine Einschränkung von VCDS – das ist die Architektur von SFD2. Aftermarket-Tools haben aktuell keinen Zugriff auf diese Ebene.
+          <strong>SFD1 und SFD2 sind keine Versionen, die aufeinander aufbauen — es sind zwei vom Prinzip her unterschiedliche Systeme, die parallel im Einsatz sind.</strong> Bei SFD2 prüft das Backend von VW jede Änderung gegen die VIN-spezifische Konfiguration. Änderungen außerhalb der vom Hersteller vorgesehenen Konfiguration werden serverseitig abgewiesen. Das ist keine Einschränkung von VCDS – das ist die Architektur von SFD2. Aftermarket-Tools haben aktuell keinen Zugriff auf diese Ebene.
         </div>
       </div>
     </section>
