@@ -12,7 +12,7 @@ function ProblemSection() {
              className="problem-grid">
           <div>
             <p style={{fontSize: 17, lineHeight: 1.6, color: "var(--ink-dim)", marginBottom: 18}}>
-              <strong style={{color: "var(--ink)"}}>SFD</strong> steht für „Schutz Fahrzeug Diagnose“. VW, Audi, Škoda, SEAT und Cupra verriegeln damit in allen ab Modelljahr&nbsp;2020 neu eingeführten Fahrzeugmodellen zentrale Steuergeräte gegen unautorisierten Zugriff.
+              <strong style={{color: "var(--ink)"}}>SFD</strong> steht für „Schutz Fahrzeug Diagnose“. VW, Audi, Škoda, SEAT und Cupra verriegeln damit in Umsetzung der EU-Verordnungen 2018/858 und 2021/1244 in allen ab Modelljahr&nbsp;2020 neu eingeführten Fahrzeugmodellen (MQBevo-Plattform und neuer) zentrale Steuergeräte gegen unautorisierten Zugriff.
             </p>
             <p style={{fontSize: 17, lineHeight: 1.6, color: "var(--ink-dim)"}}>
               Ohne SFD-Freischaltung bleiben Routinearbeiten blockiert: Service-Reset nach Inspektion, Bremsen öffnen für den Belagwechsel, Lenkwinkelsensor anlernen, Adaptionswerte zurücksetzen.
@@ -175,24 +175,29 @@ function CompareSection() {
 }
 
 function VoraussetzungenSection() {
-  const [done, setDone] = useState({a: false, b: false, c: false});
-  const allDone = done.a && done.b && done.c;
+  const [done, setDone] = useState({a: false, b: false, c: false, d: false});
+  const allDone = done.a && done.b && done.c && done.d;
 
   const items = [
     {
       key: "a",
       title: "Verified User im Ross-Tech-Forum",
-      body: "Ohne Verifizierung kein SFD-Service. Verifizierung ist kostenfrei, dauert 1 – 3 Werktage und ist an die Seriennummer des Interfaces gebunden.",
+      body: "Account-Registrierung im offiziellen Ross-Tech-Forum mit Identitätsnachweis (Ausweis-Upload). Verifizierung kostenfrei, 1 – 3 Werktage. Voraussetzung: VW verlangt 100% Rückverfolgbarkeit aller SFD-Tokens.",
     },
     {
       key: "b",
-      title: "VCDS Beta 26.5 installiert",
-      body: <>Die Online-SFD-Funktionalität ist erst ab <span className="inline-code">Beta&nbsp;26.5</span> enthalten. Stable-Versionen können den Service nicht starten.</>,
+      title: "Profi-Interface ab 01.01.2023",
+      body: <>Nur HEX-V2 oder HEX-NET in der <span className="inline-code">Unlimited</span>-Version (ohne FIN-Limit), gekauft nach dem 01.01.2023. Hobby-Versionen (3-FIN/10-FIN) brauchen ein separates SFD-Upgrade — in der Beta-Phase noch nicht freigegeben.</>,
     },
     {
       key: "c",
-      title: "Beta-Firmware auf dem Interface",
-      body: "Das Interface muss auf den Beta-Channel umgestellt und auf die aktuelle Firmware geflasht sein. Der Test ist simpel: Wenn ein vollständiger Auto-Scan mit Beta 26.5 funktioniert, ist die Firmware kompatibel.",
+      title: "VCDS Beta 26.5 (EN) installiert",
+      body: <>Die Online-SFD-Funktionalität ist erst ab <span className="inline-code">Beta&nbsp;26.5 (EN)</span> enthalten. Stable-Versionen und die deutsche Version starten den Service nicht. Interface zusätzlich auf Beta-Firmware-Channel umgestellt.</>,
+    },
+    {
+      key: "d",
+      title: "SFD-Passwort hinterlegt",
+      body: "Bei jeder SFD-Sitzung wird ein zusätzliches, eindeutiges SFD-Passwort abgefragt — nicht das Forum-Passwort. Wird einmal im Ross-Tech-Account gesetzt und ist Pflicht für jeden Sitzungsstart.",
     },
   ];
 
@@ -200,14 +205,14 @@ function VoraussetzungenSection() {
     <section id="voraussetzungen">
       <div className="wrap sec-head">
         <span className="eyebrow"><span className="dot"/>Voraussetzungen</span>
-        <h2>Drei Dinge müssen stimmen, bevor du loslegst.</h2>
-        <p className="lead">Tippe auf die Felder rechts, um deinen Fortschritt abzuhaken. Wenn alle drei erfüllt sind, schalten wir unsere Support-Nummer frei – falls du noch Fragen hast.</p>
+        <h2>Vier Dinge müssen stimmen, bevor du loslegst.</h2>
+        <p className="lead">Tippe auf die Felder rechts, um deinen Fortschritt abzuhaken. Wenn alle vier erfüllt sind, schalten wir unsere Support-Nummer frei – falls du noch Fragen hast.</p>
       </div>
       <div className="wrap-tight" style={{paddingBottom: 24}}>
         <div className="checklist">
           {items.map((it, i) => (
             <div key={it.key} className="check-item">
-              <span className="check-num">0{i+1}&nbsp;/&nbsp;03</span>
+              <span className="check-num">0{i+1}&nbsp;/&nbsp;04</span>
               <div className="check-body">
                 <h3>{it.title}</h3>
                 <p>{it.body}</p>
@@ -248,7 +253,7 @@ function VoraussetzungenSection() {
           <div style={{fontFamily: "var(--mono)", fontSize: 13, color: allDone ? "var(--ok)" : "var(--ink-dim)"}}>
             {allDone
               ? "✓ ALLE VORAUSSETZUNGEN ERFÜLLT — SUPPORT-NUMMER FREIGESCHALTET."
-              : `STATUS: ${Object.values(done).filter(Boolean).length} / 3 ERLEDIGT — NUMMER NOCH GESPERRT`}
+              : `STATUS: ${Object.values(done).filter(Boolean).length} / 4 ERLEDIGT — NUMMER NOCH GESPERRT`}
           </div>
           {allDone ? (
             <a href="tel:+4923458545800" className="btn btn-primary btn-mono">
@@ -257,7 +262,7 @@ function VoraussetzungenSection() {
           ) : (
             <button className="btn btn-primary btn-mono" disabled
                     style={{opacity: 0.4, cursor: "not-allowed"}}>
-              🔒 Support-Nummer · alle 3 Häkchen setzen
+              🔒 Support-Nummer · alle 4 Häkchen setzen
             </button>
           )}
         </div>
@@ -269,17 +274,17 @@ function VoraussetzungenSection() {
 function AblaufSection() {
   const steps = [
     { time: "Einmalig · 1 – 3 Werktage", title: "Konto verifizieren",
-      body: "Im Ross-Tech-Forum registrieren, Verifizierung beantragen, Bestätigung abwarten." },
-    { time: "Einmalig · ~10 Min.", title: "VCDS aktualisieren",
-      body: "Beta 26.5 herunterladen, installieren, Interface auf Beta-Firmware-Channel umstellen, Firmware-Update durchführen." },
+      body: "Im Ross-Tech-Forum registrieren, Identitätsnachweis hochladen (Ausweis), Verifizierung abwarten." },
+    { time: "Einmalig · ~10 Min.", title: "VCDS Beta 26.5 (EN) installieren",
+      body: <>Englische Beta 26.5 herunterladen, installieren, Interface auf Beta-Firmware-Channel umstellen, Firmware-Update durchführen. Stable-Versionen und die deutsche Version starten den SFD-Service nicht.</> },
     { time: "~2 Min.", title: "Auto-Scan testen",
       body: "Interface mit dem Fahrzeug verbinden, vollständigen Scan durchführen. Läuft der Scan sauber durch, ist die Voraussetzung erfüllt." },
-    { time: "Einmalig", title: "SFD-Service buchen",
-      body: "Im Konto die SFD-Funktionalität aktivieren. Pro Account ein Interface – auch bei mehreren HEX-Geräten im Besitz." },
-    { time: "~30 Sek.", title: "Sitzung starten",
-      body: <>VCDS → <span className="inline-code">Applications</span> → <span className="inline-code">Start SFD Session</span>. Anmeldung mit Ross-Tech-Zugangsdaten. Sitzung bleibt aktiv, bis sie beendet wird.</> },
-    { time: "Pro Operation · ~1 Min.", title: "Arbeiten",
-      body: "Steuergerät auswählen, Security Access anfordern, gewünschte Funktion ausführen." },
+    { time: "Einmalig", title: "SFD-Funktion im Account aktivieren",
+      body: "Im Ross-Tech-Account die SFD-Funktionalität freischalten und das SFD-Passwort hinterlegen — wird bei jeder Sitzung abgefragt. Pro Account ein Interface, auch bei mehreren HEX-Geräten." },
+    { time: "~30 Sek.", title: "SFD-Sitzung starten",
+      body: <>VCDS → <span className="inline-code">Applications</span> → <span className="inline-code">Start SFD Session</span>. SFD-Passwort eingeben, erneut auf <span className="inline-code">Start SFD Session</span> klicken, warten bis sich der VC-Konfigurator öffnet (Server-Verifikation kann dauern).</> },
+    { time: "Pro Sitzung · ~1 Min.", title: "Im Fahrzeug freischalten",
+      body: <>Zuerst CAN-Gateway entsperren (Adresse&nbsp;19, <span className="inline-code">SFD</span> → <span className="inline-code">Online unlock</span>) — bleibt 90&nbsp;Min aktiv. Bei Modellen ab MJ&nbsp;2024 zusätzlich den Diagnostic Filter (<span className="inline-code">-R</span>) über Adaptionskanal deaktivieren. Erst dann das eigentliche Ziel-Steuergerät freischalten.</> },
   ];
   return (
     <section id="ablauf">
