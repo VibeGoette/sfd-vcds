@@ -135,13 +135,13 @@ function CompareSection() {
       <div className="wrap sec-head">
         <span className="eyebrow"><span className="dot"/>Was geht – was nicht</span>
         <h2>SFD ist nicht gleich&nbsp;SFD.</h2>
-        <p className="lead">SFD1 und SFD2 existieren parallel — beide werden weiterhin in neuen Modellen verbaut. Welche Variante ein Steuergerät verwendet, zeigt der Auto-Scan: <span className="inline-code">SFD1</span> oder <span className="inline-code">SFD2</span> wird pro Steuergerät ausgewiesen.</p>
+        <p className="lead">SFD und SFD2 existieren parallel — beide werden weiterhin in neuen Modellen verbaut. Welche Variante ein Steuergerät verwendet, zeigt der Auto-Scan: <span className="inline-code">SFD</span> oder <span className="inline-code">SFD2</span> wird pro Steuergerät ausgewiesen.</p>
       </div>
       <div className="wrap" style={{paddingBottom: 60}}>
         <div className="compare">
           <div className="compare-card">
             <span className="compare-tag"><Icon.Unlock/> Voll unterstützt</span>
-            <h3>SFD1</h3>
+            <h3>SFD</h3>
             <div className="compare-meta">Seit Modelljahr 2020&nbsp;&middot;&nbsp;weiterhin im Einsatz</div>
             <div className="compare-rows">
               {sfd1Rows.map(([t, sub, k], i) => (
@@ -155,7 +155,7 @@ function CompareSection() {
           <div className="compare-card limited">
             <span className="compare-tag"><Icon.Lock/> Andere Architektur</span>
             <h3>SFD2</h3>
-            <div className="compare-meta">Selektiv neu eingeführt&nbsp;&middot;&nbsp;koexistent zu SFD1</div>
+            <div className="compare-meta">Selektiv neu eingeführt&nbsp;&middot;&nbsp;koexistent zu SFD</div>
             <div className="compare-rows">
               {sfd2Rows.map(([t, sub, k], i) => (
                 <div key={i} className="compare-row">
@@ -167,7 +167,7 @@ function CompareSection() {
           </div>
         </div>
         <div className="note-block">
-          <strong>SFD1 und SFD2 sind keine Versionen, die aufeinander aufbauen — es sind zwei vom Prinzip her unterschiedliche Systeme, die parallel im Einsatz sind.</strong> Bei SFD2 prüft das Backend von VW jede Änderung gegen die VIN-spezifische Konfiguration. Änderungen außerhalb der vom Hersteller vorgesehenen Konfiguration werden serverseitig abgewiesen. Das ist keine Einschränkung von VCDS – das ist die Architektur von SFD2. Aftermarket-Tools haben aktuell keinen Zugriff auf diese Ebene.
+          <strong>SFD und SFD2 sind keine Versionen, die aufeinander aufbauen — es sind zwei vom Prinzip her unterschiedliche Systeme, die parallel im Einsatz sind.</strong> Bei SFD2 prüft das Backend von VW jede Änderung gegen die VIN-spezifische Konfiguration. Änderungen außerhalb der vom Hersteller vorgesehenen Konfiguration werden serverseitig abgewiesen. Das ist keine Einschränkung von VCDS – das ist die Architektur von SFD2. Aftermarket-Tools haben aktuell keinen Zugriff auf diese Ebene.
         </div>
       </div>
     </section>
