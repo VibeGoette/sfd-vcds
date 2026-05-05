@@ -237,9 +237,9 @@ function VoraussetzungenSection() {
         <div className="warning">
           <div className="warning-icon"><Icon.Warning/></div>
           <div>
-            <h3>Kritisch: Erst scannen, dann buchen.</h3>
+            <h3>Wichtig: Public Beta.</h3>
             <p>
-              Wer den SFD-Service bucht, ohne vorher erfolgreich einen Auto-Scan mit Beta&nbsp;26.5 durchgeführt zu haben, riskiert die automatische Kontosperre durch das Backend. Bei mehreren fehlgeschlagenen Anmeldeversuchen während einer SFD-Sitzung greifen Sicherheitsmechanismen – das Konto kann <span className="badge-92">mehrwöchig</span> für SFD-Sitzungen gesperrt werden. Das ist keine Strafe von Ross-Tech, das ist serverseitiger Schutz gegen automatisierte Anmeldeversuche.
+              Der Online-SFD-Service ist eine öffentliche Beta-Version. Fehler und Aussetzer können vorkommen, und nicht jeder Bug ist sofort behoben. Empfohlen für erfahrene VCDS-Anwender, die mit Beta-typischen Eigenheiten umgehen können.
             </p>
           </div>
         </div>
