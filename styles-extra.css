@@ -359,3 +359,112 @@
   outline: 2px solid var(--gold);
   outline-offset: 2px;
 }
+
+/* ============ MOBILE OPTIMIZATIONS (≤720px) ============ */
+
+/* Globale Worttrennung — verhindert Overflow durch lange deutsche Komposita */
+html { hyphens: auto; -webkit-hyphens: auto; }
+h1, h2, h3, h4, p, .lead, strong, li, td, th {
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+/* Inline-codes und mono-Strings nicht trennen */
+.inline-code, code, .mono, [class*="-mono"] { hyphens: none; word-break: keep-all; }
+
+@media (max-width: 720px) {
+  /* Wrap-Padding: etwas mehr Luft am Rand */
+  .wrap, .wrap-tight { padding: 0 18px; }
+
+  /* Typography skaliert runter */
+  h1 { font-size: clamp(26px, 7vw, 36px); letter-spacing: -0.025em; }
+  h2 { font-size: clamp(22px, 5.5vw, 30px); letter-spacing: -0.022em; }
+  h3 { font-size: 16px; }
+  .lead { font-size: 14.5px; line-height: 1.55; }
+  body { font-size: 14.5px; line-height: 1.55; }
+
+  /* Hero kompakter */
+  .hero { padding: 20px 0 28px; }
+  .hero-meta { font-size: 11px; gap: 10px; margin-bottom: 18px; flex-wrap: wrap; }
+  .hero-sub { font-size: 14.5px; margin-bottom: 22px; }
+  .hero-grid { gap: 28px; }
+
+  /* Trust-Marquee: Padding tighter, Text kleiner */
+  .trust-text { font-size: 12.5px; }
+  .trust-item { padding: 16px 22px; gap: 12px; }
+  .trust-icon { width: 32px; height: 32px; }
+
+  /* Compare-Karten kompakter */
+  .compare { gap: 12px; }
+  .compare-card { padding: 18px 20px; }
+  .compare-card h3 { font-size: 18px; }
+  .compare-row { font-size: 13px; gap: 10px; }
+  .compare-row .label { font-size: 13.5px; }
+  .compare-row small { font-size: 11.5px; }
+  .compare-meta { font-size: 11.5px; }
+
+  /* Voraussetzungen Checklist mobile */
+  .check-item { padding: 16px 18px; gap: 12px; flex-direction: row; flex-wrap: wrap; }
+  .check-num { font-size: 10.5px; flex-shrink: 0; }
+  .check-body { flex: 1 1 100%; order: 3; margin-top: 4px; }
+  .check-body h3 { font-size: 15.5px; line-height: 1.3; }
+  .check-body p { font-size: 13px; line-height: 1.5; }
+  .check-state { padding: 6px 11px; font-size: 10.5px; flex-shrink: 0; }
+
+  /* Warning-Block */
+  .warning { padding: 16px 18px; gap: 12px; }
+  .warning h3 { font-size: 15px; margin-bottom: 6px; }
+  .warning p { font-size: 13px; line-height: 1.5; }
+  .warning-icon { width: 28px; height: 28px; }
+
+  /* Steps (Ablauf) */
+  .step { padding: 14px 16px; }
+  .step-time { font-size: 10.5px; }
+  .step-title { font-size: 15.5px; }
+  .step-body { font-size: 13px; line-height: 1.5; }
+  .step-num { width: 28px; height: 28px; font-size: 12px; }
+
+  /* FAQ kompakter */
+  .faq-q { font-size: 14.5px; padding: 14px 0; }
+  .faq-a { font-size: 13.5px; line-height: 1.55; padding-bottom: 14px; }
+
+  /* Buttons mobile */
+  .btn { padding: 12px 16px; font-size: 13.5px; }
+  .btn-mono { font-size: 12px; }
+
+  /* Footer kompakter */
+  .footer-grid { gap: 28px; }
+  .footer h4 { font-size: 13px; margin-bottom: 10px; }
+  .footer ul li a { font-size: 13px; }
+  .footer-disclaimer { font-size: 11.5px; line-height: 1.5; }
+
+  /* Section-Headings */
+  .sec-head { margin-bottom: 28px; }
+  .eyebrow { font-size: 11px; }
+
+  /* Note-Block */
+  .note-block { padding: 16px 18px; font-size: 13.5px; line-height: 1.55; }
+
+  /* VCDS Mockup / Screenshot frame: minimum frame padding */
+  .vcds-shot { margin: 0; }
+  .vcds-shot-bar { padding: 8px 12px; font-size: 11px; }
+
+  /* Tag-Pills nicht zu groß */
+  .compare-tag { font-size: 10.5px; padding: 4px 8px; }
+  .badge-92 { font-size: 11px; padding: 1px 6px; }
+
+  /* Eignungs-Check Cards */
+  .vin-card { padding: 16px 18px; }
+
+  /* Final CTA */
+  .final-cta-box { padding: 24px 22px; }
+  .final-cta-box h2 { font-size: clamp(22px, 6vw, 28px); }
+}
+
+/* Sehr schmale Geräte (<380px, älteres iPhone Mini etc.) */
+@media (max-width: 380px) {
+  .wrap, .wrap-tight { padding: 0 14px; }
+  h1 { font-size: clamp(24px, 6.5vw, 30px); }
+  h2 { font-size: 21px; }
+  .check-num { display: none; } /* Spart Platz auf sehr schmal */
+  .nav-cta-shop { font-size: 10.5px; padding: 6px 10px; }
+}
