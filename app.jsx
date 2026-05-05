@@ -51,9 +51,14 @@ function App() {
             <a href="#faq">FAQ</a>
             <a href="https://forums.ross-tech.com/index.php?threads/54647/" target="_blank" rel="noopener" className="forum-link">Forum ↗</a>
           </div>
-          <a href="mailto:support@vcds.de?subject=Online-SFD%20Support" className="nav-cta nav-cta-desktop">
-            ✉ support@vcds.de
-          </a>
+          <div className="nav-ctas">
+            <a href="https://www.auto-intern.de/shop/vcds/" target="_blank" rel="noopener" className="nav-cta-shop">
+              Shop ↗
+            </a>
+            <a href="mailto:support@vcds.de?subject=Online-SFD%20Support" className="nav-cta nav-cta-desktop">
+              ✉ support@vcds.de
+            </a>
+          </div>
           <button
             className={"nav-burger" + (menuOpen ? " open" : "")}
             aria-label="Menü"
@@ -74,6 +79,9 @@ function App() {
               <a href="#faq" onClick={() => setMenuOpen(false)}>FAQ</a>
               <a href="https://forums.ross-tech.com/index.php?threads/54647/" target="_blank" rel="noopener" className="forum-link">Forum-Thread ↗</a>
               <a href="https://www.ross-tech.com/vcds/download/beta/26-5.php" target="_blank" rel="noopener">Beta 26.5 Download ↗</a>
+              <a href="https://www.auto-intern.de/shop/vcds/" target="_blank" rel="noopener" className="mobile-cta-shop">
+                Auto-Intern Shop ↗
+              </a>
               <a href="mailto:support@vcds.de?subject=Online-SFD%20Support" className="mobile-cta">
                 ✉ support@vcds.de
               </a>
