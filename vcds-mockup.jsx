@@ -208,13 +208,13 @@ Vielen Dank.`;
   const faustregeln = [
     {
       meta: "Ab Modelljahr 2020 · neu eingeführte Modelle",
-      title: "SFD1 ist die Mehrheit.",
-      body: "Der Großteil der ab MJ 2020 neu eingeführten VAG-Modelle nutzt SFD1 — auch in aktuellen Baujahren. Service, Diagnose, Coding und Adaptation sind via Online-SFD voll möglich.",
+      title: "SFD ist die Mehrheit.",
+      body: "Der Großteil der ab MJ 2020 neu eingeführten VAG-Modelle nutzt SFD — auch in aktuellen Baujahren. Service, Diagnose, Coding und Adaptation sind via Online-SFD voll möglich.",
       tag: "Voll unterstützt",
       state: "ok",
     },
     {
-      meta: "Selektiv neu eingeführt · koexistent zu SFD1",
+      meta: "Selektiv neu eingeführt · koexistent zu SFD",
       title: "Bei SFD2: Coding limitiert.",
       body: "SFD2 ist eine andere Architektur, die Coding-Änderungen, Adaption und Retrofit auf bestimmten Steuergeräten zusätzlich absichert. Service-Funktionen wie SRI-Reset, Bremsen-Wartungsmodus und Lenkwinkel-Anlernen bleiben über den regulären SFD-Unlock möglich — auch bei SFD2-Fahrzeugen.",
       tag: "Coding limitiert",
@@ -223,7 +223,7 @@ Vielen Dank.`;
     {
       meta: "Pro Steuergerät unterschiedlich",
       title: "Eindeutig nur per Auto-Scan.",
-      body: "Ein Fahrzeug kann SFD1 und SFD2 mischen — abhängig vom einzelnen Steuergerät. Verbindlich ist immer der Auto-Scan mit VCDS Beta 26.5.",
+      body: "Ein Fahrzeug kann SFD und SFD2 mischen — abhängig vom einzelnen Steuergerät. Verbindlich ist immer der Auto-Scan mit VCDS Beta 26.5.",
       tag: "Verbindlich",
       state: "neutral",
     },
