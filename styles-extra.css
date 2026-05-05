@@ -468,3 +468,133 @@ h1, h2, h3, h4, p, .lead, strong, li, td, th {
   .check-num { display: none; } /* Spart Platz auf sehr schmal */
   .nav-cta-shop { font-size: 10.5px; padding: 6px 10px; }
 }
+
+/* ============ Eignungs-Check Faustregeln Cards (Redesign) ============ */
+.eignung-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 12px;
+}
+@media (min-width: 720px) { .eignung-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; } }
+
+.eignung-card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 26px 24px 22px;
+  display: flex; flex-direction: column;
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+  overflow: hidden;
+  --card-color: var(--accent);
+  --card-pill-text: var(--accent);
+}
+.eignung-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px -14px color-mix(in oklab, var(--card-color) 30%, transparent);
+  border-color: color-mix(in oklab, var(--card-color) 50%, var(--line));
+}
+
+/* Status accent bar (top, animated on hover) */
+.eignung-card-bar {
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg,
+    var(--card-color),
+    color-mix(in oklab, var(--card-color) 70%, var(--gold)));
+  transition: height .25s ease;
+}
+.eignung-card:hover .eignung-card-bar { height: 5px; }
+
+/* State variants */
+.eignung-card--ok {
+  --card-color: var(--accent);
+  --card-pill-text: var(--accent);
+}
+.eignung-card--warn {
+  --card-color: #d97706;
+  --card-pill-text: #92400e;
+}
+.eignung-card--info {
+  --card-color: var(--gold);
+  --card-pill-text: #8a6d2f;
+}
+
+/* Header: Pill + Big Index */
+.eignung-card-head {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 18px;
+  gap: 10px;
+}
+.eignung-pill {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 6px 11px;
+  background: color-mix(in oklab, var(--card-color) 14%, transparent);
+  color: var(--card-pill-text);
+  border-radius: 4px;
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.eignung-pill svg {
+  width: 13px; height: 13px;
+  flex-shrink: 0;
+}
+.eignung-num {
+  font-family: var(--mono);
+  font-size: 32px;
+  font-weight: 600;
+  color: color-mix(in oklab, var(--card-color) 28%, var(--ink-mute));
+  letter-spacing: -0.03em;
+  line-height: 1;
+  transition: color .25s ease;
+}
+.eignung-card:hover .eignung-num {
+  color: var(--card-color);
+}
+
+/* Title */
+.eignung-card-title {
+  font-size: clamp(18px, 1.7vw, 22px);
+  line-height: 1.25;
+  margin-bottom: 12px;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+
+/* Body */
+.eignung-card-body {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink-dim);
+  flex: 1;
+  margin-bottom: 18px;
+}
+
+/* Footer with dashed divider + meta */
+.eignung-card-foot {
+  border-top: 1px dashed color-mix(in oklab, var(--card-color) 30%, var(--line));
+  padding-top: 12px;
+  margin-top: auto;
+}
+.eignung-card-meta {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--ink-mute);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Mobile */
+@media (max-width: 720px) {
+  .eignung-card { padding: 22px 20px 18px; }
+  .eignung-card-head { margin-bottom: 14px; }
+  .eignung-num { font-size: 24px; }
+  .eignung-card-title { font-size: 17px; margin-bottom: 10px; }
+  .eignung-card-body { font-size: 13.5px; margin-bottom: 14px; }
+  .eignung-pill { font-size: 10px; padding: 5px 9px; }
+}

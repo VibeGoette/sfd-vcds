@@ -229,9 +229,10 @@ Vielen Dank.`;
     },
   ];
 
-  const neutralTagStyle = {
-    background: "color-mix(in oklab, var(--ink-mute) 15%, transparent)",
-    color: "var(--ink-mute)",
+  const stateConfig = {
+    ok:   { Icon: Icon.Check,   modifier: "ok" },
+    warn: { Icon: Icon.Warning, modifier: "warn" },
+    neutral: { Icon: Icon.Server, modifier: "info" },
   };
 
   return (
@@ -244,22 +245,27 @@ Vielen Dank.`;
         </p>
       </div>
       <div className="wrap" style={{paddingBottom: 32}}>
-        <div style={{display: "flex", flexWrap: "wrap", gap: 16, marginTop: 12}}>
-          {faustregeln.map((f, i) => (
-            <div key={i}
-                 className={"compare-card" + (f.state === "warn" ? " limited" : "")}
-                 style={{flex: "1 1 280px"}}>
-              <span className="compare-tag"
-                    style={f.state === "neutral" ? neutralTagStyle : undefined}>
-                {f.tag}
-              </span>
-              <div className="compare-meta" style={{marginTop: 12, marginBottom: 4}}>{f.meta}</div>
-              <h3>{f.title}</h3>
-              <p style={{fontSize: 15, lineHeight: 1.6, color: "var(--ink-dim)", marginTop: 8}}>
-                {f.body}
-              </p>
-            </div>
-          ))}
+        <div className="eignung-grid">
+          {faustregeln.map((f, i) => {
+            const cfg = stateConfig[f.state] || stateConfig.neutral;
+            const IconC = cfg.Icon;
+            return (
+              <article key={i} className={`eignung-card eignung-card--${cfg.modifier}`}>
+                <div className="eignung-card-bar"/>
+                <header className="eignung-card-head">
+                  <span className="eignung-pill">
+                    <IconC/> {f.tag}
+                  </span>
+                  <span className="eignung-num">{String(i + 1).padStart(2, "0")}</span>
+                </header>
+                <h3 className="eignung-card-title">{f.title}</h3>
+                <p className="eignung-card-body">{f.body}</p>
+                <footer className="eignung-card-foot">
+                  <span className="eignung-card-meta">{f.meta}</span>
+                </footer>
+              </article>
+            );
+          })}
         </div>
       </div>
       <div className="wrap-tight" style={{paddingBottom: 80}}>
