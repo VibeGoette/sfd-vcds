@@ -102,12 +102,18 @@ function App() {
                 <a href="#voraussetzungen" className="btn btn-secondary">Voraussetzungen prüfen</a>
               </div>
 
-              <div style={{marginTop: 36, display: "flex", gap: 24, flexWrap: "wrap",
-                           fontFamily: "var(--mono)", fontSize: 12, color: "var(--ink-mute)"}}>
-                <span>✓ VW · Audi · Škoda · SEAT · CUPRA · Bentley · MAN</span>
-                <span>✓ HEX-NET · HEX-V2</span>
+              <div className="hero-trust-strip">
+                <div className="hero-trust-brands">
+                  <span className="hero-trust-label">VAG-Marken</span>
+                  <span className="hero-trust-brands-list">VW · Audi · Škoda · SEAT · CUPRA</span>
+                </div>
+                <div className="hero-trust-hex">
+                  <span className="hero-trust-label">Kompatibel</span>
+                  <span className="hex-badge"><Icon.Check/> HEX-NET</span>
+                  <span className="hex-badge"><Icon.Check/> HEX-V2</span>
+                </div>
                 <a href="https://forums.ross-tech.com/index.php?threads/54647/" target="_blank" rel="noopener"
-                   style={{color: "var(--accent)", borderBottom: "1px solid currentColor"}}>
+                   className="hero-trust-link">
                   Original-Thread im Ross-Tech-Forum ↗
                 </a>
               </div>
