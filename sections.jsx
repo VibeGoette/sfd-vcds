@@ -112,7 +112,7 @@ function LoesungSection() {
 function CompareSection() {
   const sfd1Rows = [
     ["Vollständige Freischaltung", "Pro Steuergerät via Security Access", "ok"],
-    ["Coding & Lange-Codierung", "Lichtsignaturen, Komfort, Retrofit", "ok"],
+    ["Codierung & Lange Codierung", "Lichtsignaturen, Komfort, Retrofit", "ok"],
     ["Adaptionswerte ändern", "Lenkwinkel, AHK, Reifengröße", "ok"],
     ["Service-Funktionen", "SRI-Reset, EPB, Lenkwinkel anlernen", "ok"],
     ["Aktive Sitzung", "Bleibt offen bis manuell beendet", "ok"],
@@ -120,7 +120,7 @@ function CompareSection() {
   const sfd2Rows = [
     ["Standard-Diagnose", "Fehlerspeicher, Live-Daten — ohne SFD nutzbar", "ok"],
     ["Service-Funktionen", "SRI, Bremsen, Lenkwinkel — über regulären SFD-Unlock", "ok"],
-    ["Coding-Änderungen", "Backend lehnt grundsätzlich ab", "no"],
+    ["Codier-Änderungen", "Backend lehnt grundsätzlich ab", "no"],
     ["Adaption / Retrofit", "Aftermarket-Zugriff auf SFD2-Schicht nicht vorgesehen", "no"],
   ];
 
@@ -181,7 +181,7 @@ function VoraussetzungenSection() {
   const items = [
     {
       key: "a",
-      title: "Verified User im Ross-Tech-Forum",
+      title: "Verifizierter Account im Ross-Tech-Forum",
       body: "Account-Registrierung im offiziellen Ross-Tech-Forum mit Identitätsnachweis (Ausweis-Upload). Verifizierung kostenfrei, 1 – 3 Werktage. Voraussetzung: VW verlangt 100% Rückverfolgbarkeit aller SFD-Tokens.",
     },
     {
@@ -196,8 +196,8 @@ function VoraussetzungenSection() {
     },
     {
       key: "d",
-      title: "Interface auf Beta-Firmware-Channel",
-      body: <>Im VCDS-Konfigurator das Interface auf den <span className="inline-code">BETA</span>-Update-Channel umstellen und das Firmware-Update durchführen. Erst danach ist das Interface mit der Beta&nbsp;26.5 kompatibel.</>,
+      title: "Interface auf Beta-Firmware-Kanal",
+      body: <>Im VCDS-Konfigurator das Interface auf den <span className="inline-code">BETA</span>-Update-Kanal umstellen und das Firmware-Update durchführen. Erst danach ist das Interface mit der Beta&nbsp;26.5 kompatibel.</>,
     },
     {
       key: "e",
@@ -239,7 +239,7 @@ function VoraussetzungenSection() {
           <div>
             <h3>Kritisch: Erst scannen, dann buchen.</h3>
             <p>
-              Wer den SFD-Service bucht, ohne vorher erfolgreich einen Auto-Scan mit Beta&nbsp;26.5 durchgeführt zu haben, riskiert die automatische Kontosperre durch das Backend. Bei mehreren fehlgeschlagenen Anmeldeversuchen während einer SFD-Sitzung greifen Sicherheitsmechanismen – das Konto kann <span className="badge-92">mehrwöchig</span> für SFD-Sitzungen gesperrt werden. Das ist keine Strafe von Ross-Tech, das ist serverseitiger Schutz gegen Brute-Force.
+              Wer den SFD-Service bucht, ohne vorher erfolgreich einen Auto-Scan mit Beta&nbsp;26.5 durchgeführt zu haben, riskiert die automatische Kontosperre durch das Backend. Bei mehreren fehlgeschlagenen Anmeldeversuchen während einer SFD-Sitzung greifen Sicherheitsmechanismen – das Konto kann <span className="badge-92">mehrwöchig</span> für SFD-Sitzungen gesperrt werden. Das ist keine Strafe von Ross-Tech, das ist serverseitiger Schutz gegen automatisierte Anmeldeversuche.
             </p>
           </div>
         </div>
@@ -281,7 +281,7 @@ function AblaufSection() {
     { time: "Einmalig · 1 – 3 Werktage", title: "Konto verifizieren",
       body: "Im Ross-Tech-Forum registrieren, Identitätsnachweis hochladen (Ausweis), Verifizierung abwarten." },
     { time: "Einmalig · ~10 Min.", title: "VCDS Beta 26.5 (EN) installieren",
-      body: <>Englische Beta 26.5 herunterladen, installieren, Interface auf Beta-Firmware-Channel umstellen, Firmware-Update durchführen. Stable-Versionen und die deutsche Version starten den SFD-Service nicht.</> },
+      body: <>Englische Beta 26.5 herunterladen, installieren, Interface auf Beta-Firmware-Kanal umstellen, Firmware-Update durchführen. Stable-Versionen und die deutsche Version starten den SFD-Service nicht.</> },
     { time: "~2 Min.", title: "Auto-Scan testen",
       body: "Interface mit dem Fahrzeug verbinden, vollständigen Scan durchführen. Läuft der Scan sauber durch, ist die Voraussetzung erfüllt." },
     { time: "Einmalig", title: "SFD-Funktion im Account aktivieren",
@@ -289,7 +289,7 @@ function AblaufSection() {
     { time: "~30 Sek.", title: "SFD-Sitzung starten",
       body: <>VCDS → <span className="inline-code">Applications</span> → <span className="inline-code">Start SFD Session</span>. SFD-Passwort eingeben, erneut auf <span className="inline-code">Start SFD Session</span> klicken, warten bis sich der VCDS-Konfigurator öffnet (Server-Verifikation kann dauern).</> },
     { time: "Pro Sitzung · ~1 Min.", title: "Im Fahrzeug freischalten",
-      body: <>Zuerst CAN-Gateway entsperren (Adresse&nbsp;19, <span className="inline-code">SFD</span> → <span className="inline-code">Online unlock</span>) — bleibt 90&nbsp;Min aktiv. Bei Modellen ab MJ&nbsp;2024 zusätzlich den Diagnostic Filter (<span className="inline-code">-R</span>) über Adaptionskanal deaktivieren. Erst dann das eigentliche Ziel-Steuergerät freischalten.</> },
+      body: <>Zuerst CAN-Gateway entsperren (Adresse&nbsp;19, <span className="inline-code">SFD</span> → <span className="inline-code">Online unlock</span>) — bleibt 90&nbsp;Min aktiv. Bei Modellen ab MJ&nbsp;2024 zusätzlich den Diagnosefilter (<span className="inline-code">-R</span>) über Adaptionskanal deaktivieren. Erst dann das eigentliche Ziel-Steuergerät freischalten.</> },
   ];
   return (
     <section id="ablauf">
@@ -377,7 +377,7 @@ function FAQSection() {
     { q: "Was bedeutet die Kontosperre konkret?",
       a: "Bei wiederholten fehlgeschlagenen Anmeldeversuchen während einer SFD-Sitzung greift ein automatischer Sicherheitsmechanismus auf Backend-Seite. Das Konto wird mehrwöchig für SFD-Sitzungen gesperrt. Auto-Scans und sonstige VCDS-Funktionen bleiben verfügbar." },
     { q: "Funktioniert SFD mit älteren Interfaces?",
-      a: "Voraussetzung ist die Beta-Firmware. HEX-NET und HEX-V2 sind unterstützt, sofern sie auf den Beta-Channel umgestellt werden können. Sehr alte Geräte ohne Update-Fähigkeit fallen heraus." },
+      a: "Voraussetzung ist die Beta-Firmware. HEX-NET und HEX-V2 sind unterstützt, sofern sie auf den Beta-Kanal umgestellt werden können. Sehr alte Geräte ohne Update-Fähigkeit fallen heraus." },
     { q: "Was kostet der Service?",
       a: "Aktuell befindet sich der Service in der Public-Beta-Phase. Konditionen werden veröffentlicht, sobald sie final festgelegt sind." },
     { q: "Geht das auch bei Porsche oder Lamborghini?",
@@ -390,7 +390,7 @@ function FAQSection() {
       a: "VW verlangt 100% Rückverfolgbarkeit aller SFD-Tokens. Ross-Tech ist vertraglich zur Identitätsprüfung verpflichtet. Ohne verifizierte Identität keine SFD-Sitzung." },
     { q: "Wie lange dauert die Bearbeitung?",
       a: "1–3 Werktage. Die Identitätsprüfung wird manuell durchgeführt, sobald die Unterlagen vollständig vorliegen. Sobald freigeschaltet, ist das Konto sofort einsatzbereit." },
-    { q: "Was ist der Diagnostic Filter?",
+    { q: "Was ist der Diagnosefilter?",
       a: "Ein zusätzlicher Schutzmechanismus, der bei neueren Modellen ab MJ 2024 den Zugriff auf Steuergeräte komplett blockiert (in VCDS sichtbar als „-R“ am VCID). Erst nach Gateway-Unlock und Filter-Deaktivierung sind die Module im Standard-Modus erreichbar." },
     { q: "Gibt es Nutzungslimits?",
       a: "Ja: maximal 50 Anfragen pro Stunde, 250 pro Tag und 20 verschiedene VINs pro Tag. Bei Überschreitung greift die automatische Kontosperre." },

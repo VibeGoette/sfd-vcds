@@ -182,7 +182,7 @@ function VCDSMockup() {
       <div className="vcds-statusbar">
         <span>● HEX-NET · S/N HN1-CB-19A4F2</span>
         <span>K1: 500 kBaud · K2: 100 kBaud</span>
-        <span>Ross-Tech LLC · Beta-Channel</span>
+        <span>Ross-Tech LLC · Beta-Kanal</span>
       </div>
     </div>
   );
@@ -199,7 +199,7 @@ ich möchte vorab klären, ob mein Fahrzeug für den Online-SFD-Service unterst�
 - Modell: 
 - Modelljahr: 
 - VIN (optional, 17-stellig): 
-- Geplante Aktion (Service, Diagnose, Coding, Adaptation): 
+- Geplante Aktion (Service, Diagnose, Codierung, Anpassung): 
 
 Vielen Dank.`;
   const mailHref = "mailto:support@vcds.de?subject=" + encodeURIComponent(mailSubject) +
@@ -209,15 +209,15 @@ Vielen Dank.`;
     {
       meta: "Ab Modelljahr 2020 · neu eingeführte Modelle",
       title: "SFD ist die Mehrheit.",
-      body: "Der Großteil der ab MJ 2020 neu eingeführten VAG-Modelle nutzt SFD — auch in aktuellen Baujahren. Service, Diagnose, Coding und Adaptation sind via Online-SFD voll möglich.",
+      body: "Der Großteil der ab MJ 2020 neu eingeführten VAG-Modelle nutzt SFD — auch in aktuellen Baujahren. Service, Diagnose, Codierung und Anpassung sind via Online-SFD voll möglich.",
       tag: "Voll unterstützt",
       state: "ok",
     },
     {
       meta: "Selektiv neu eingeführt · koexistent zu SFD",
-      title: "Bei SFD2: Coding limitiert.",
-      body: "SFD2 ist eine andere Architektur, die Coding-Änderungen, Adaption und Retrofit auf bestimmten Steuergeräten zusätzlich absichert. Service-Funktionen wie SRI-Reset, Bremsen-Wartungsmodus und Lenkwinkel-Anlernen bleiben über den regulären SFD-Unlock möglich — auch bei SFD2-Fahrzeugen.",
-      tag: "Coding limitiert",
+      title: "Bei SFD2: Codierung limitiert.",
+      body: "SFD2 ist eine andere Architektur, die Codier-Änderungen, Anpassungen und Nachrüstung auf bestimmten Steuergeräten zusätzlich absichert. Service-Funktionen wie SRI-Reset, Bremsen-Wartungsmodus und Lenkwinkel-Anlernen bleiben über den regulären SFD-Unlock möglich — auch bei SFD2-Fahrzeugen.",
+      tag: "Codierung limitiert",
       state: "warn",
     },
     {
