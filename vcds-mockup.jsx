@@ -276,7 +276,11 @@ Vielen Dank.`;
                          marginBottom: 8, letterSpacing: "0.06em", textTransform: "uppercase"}}>
               Im Zweifel vorab anfragen
             </div>
-            <div style={{fontSize: 16, color: "var(--ink)", lineHeight: 1.5}}>
+            <h3 style={{fontSize: "clamp(20px, 2.6vw, 26px)", marginBottom: 10,
+                        color: "var(--ink)", letterSpacing: "-0.02em", lineHeight: 1.2}}>
+              Modell-Eignung vorab prüfen lassen.
+            </h3>
+            <div style={{fontSize: 15, color: "var(--ink-dim)", lineHeight: 1.55}}>
               Unsicher, ob dein konkretes Modell unterstützt wird? Schick uns Marke, Modell und Modelljahr — Antwort meist innerhalb eines Werktags.
             </div>
           </div>
