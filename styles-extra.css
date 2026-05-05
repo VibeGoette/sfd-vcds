@@ -423,9 +423,9 @@ h1, h2, h3, h4, p, .lead, strong, li, td, th {
   .step-body { font-size: 13px; line-height: 1.5; }
   .step-num { width: 28px; height: 28px; font-size: 12px; }
 
-  /* FAQ kompakter */
+  /* FAQ kompakter — padding nur auf inner (sonst bricht max-height-Toggle) */
   .faq-q { font-size: 14.5px; padding: 14px 0; }
-  .faq-a { font-size: 13.5px; line-height: 1.55; padding-bottom: 14px; }
+  .faq-a-inner { font-size: 13.5px; line-height: 1.55; padding: 0 4px 14px; }
 
   /* Buttons mobile */
   .btn { padding: 12px 16px; font-size: 13.5px; }
@@ -598,3 +598,152 @@ h1, h2, h3, h4, p, .lead, strong, li, td, th {
   .eignung-card-body { font-size: 13.5px; margin-bottom: 14px; }
   .eignung-pill { font-size: 10px; padding: 5px 9px; }
 }
+
+/* ============ Problem-Section: Mobile-Stack ============ */
+@media (max-width: 720px) {
+  .problem-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  .problem-grid p { font-size: 14.5px !important; line-height: 1.6 !important; }
+  .problem-grid > div:last-child { margin-top: 8px; }
+}
+
+/* ============ Verbesserte Visual Hierarchy: Blau-Akzente ============ */
+/* Wechselnde Section-Backgrounds als Stop-Punkte beim Scannen */
+#problem { background: linear-gradient(180deg, var(--bg) 0%, var(--accent-soft) 100%); }
+#vergleich { background: var(--bg); position: relative; }
+#vergleich::before {
+  content: ""; position: absolute;
+  top: 0; left: 50%; transform: translateX(-50%);
+  width: 60px; height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--gold));
+  border-radius: 2px;
+  margin-top: 32px;
+}
+#voraussetzungen { background: var(--accent-soft); padding-top: 40px; }
+#ablauf { background: var(--bg); }
+#cta { background: linear-gradient(180deg, var(--bg) 0%, var(--accent-soft) 100%); }
+
+/* Eyebrow stärker akzentuiert */
+.eyebrow {
+  color: var(--accent) !important;
+  font-weight: 600 !important;
+}
+.eyebrow .dot { background: var(--accent); box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent) 18%, transparent); }
+
+/* H2 mit subtiler Akzent-Linie unter Eyebrow */
+.sec-head { position: relative; }
+.sec-head h2 strong, .sec-head h2 em {
+  color: var(--accent);
+  font-style: normal;
+}
+
+/* ============ Footer Redesign: Brand-Blau ============ */
+.footer {
+  background: var(--accent);
+  color: rgba(255, 255, 255, 0.85);
+  border-top: 3px solid var(--gold);
+  padding: 48px 0 32px;
+}
+@media (min-width: 720px) { .footer { padding: 64px 0 40px; } }
+.footer p { color: rgba(255, 255, 255, 0.75); }
+.footer h4 {
+  color: var(--gold) !important;
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.footer ul { color: rgba(255, 255, 255, 0.85); }
+.footer ul li a {
+  color: rgba(255, 255, 255, 0.85);
+  transition: color .2s ease;
+}
+.footer ul li a:hover { color: var(--gold) !important; }
+
+/* Logo im Footer sichtbar (weiß) */
+.footer .brand-logo {
+  filter: brightness(0) invert(1);
+  height: 40px;
+}
+.footer .brand-logo-stack .divider { background: var(--gold); opacity: 0.7; }
+.footer .brand-logo-stack .tag { color: var(--gold); }
+
+/* Telegram-Footer-Button: invertiert (Gold-Outline auf Blau) */
+.footer-telegram-link {
+  background: transparent !important;
+  border: 1px solid var(--gold) !important;
+  color: var(--gold) !important;
+  font-weight: 600;
+}
+.footer-telegram-link:hover {
+  background: var(--gold) !important;
+  border-color: var(--gold) !important;
+  color: var(--accent-ink) !important;
+}
+
+/* Disclaimer */
+.footer-disclaimer {
+  color: rgba(255, 255, 255, 0.6) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
+  padding-top: 24px;
+  margin-top: 32px;
+}
+.footer-disclaimer strong {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* ============ Mobile Polish – weitere Fixes ============ */
+@media (max-width: 720px) {
+  /* Footer kompakter */
+  .footer { padding: 36px 0 28px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+  .footer h4 { font-size: 11.5px; }
+
+  /* Section-Backgrounds: weniger gradient, sonst zu busy */
+  #problem, #cta { background: var(--bg); }
+  #vergleich::before { display: none; }
+
+  /* Hero: Trust-Items klarer */
+  .hero { padding: 18px 0 24px; }
+
+  /* Compare-Cards mit subtiler Akzent-Bar oben */
+  .compare-card {
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Eyebrow mehr Pop */
+  .eyebrow { font-size: 11px; padding: 4px 0; }
+}
+
+/* Section-Header H2 mehr Visual Weight */
+.sec-head h2 {
+  position: relative;
+}
+@media (min-width: 720px) {
+  .sec-head h2::before {
+    content: "";
+    position: absolute;
+    left: -32px; top: 12px;
+    width: 4px; height: calc(100% - 16px);
+    background: linear-gradient(180deg, var(--accent), color-mix(in oklab, var(--gold) 80%, transparent));
+    border-radius: 2px;
+    opacity: 0;
+    transition: opacity .4s ease;
+  }
+}
+
+/* Compare-Card beim Hover: Brand-Blau Border-Top als Stopper */
+.compare-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .4s ease;
+}
+.compare-card:hover::before { transform: scaleX(1); }
+.compare-card.limited::before { background: linear-gradient(90deg, var(--accent), var(--gold)); }

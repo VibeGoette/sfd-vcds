@@ -563,8 +563,8 @@ p  { margin: 0; color: var(--ink-dim); }
 .faq-q:hover { color: var(--accent-2); }
 .faq-q .icon { width: 24px; height: 24px; display: grid; place-items: center; color: var(--ink-mute); transition: transform .2s ease; }
 .faq-item.open .faq-q .icon { transform: rotate(45deg); color: var(--accent); }
-.faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
-.faq-item.open .faq-a { max-height: 500px; }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+.faq-item.open .faq-a { max-height: 1200px; }
 .faq-a-inner { padding: 0 4px 18px; max-width: 70ch; font-size: 14px; line-height: 1.6; color: var(--ink-dim); }
 @media (min-width: 720px) { .faq-a-inner { padding: 0 4px 22px; font-size: 15px; } }
 
