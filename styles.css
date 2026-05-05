@@ -148,11 +148,11 @@ p  { margin: 0; color: var(--ink-dim); }
   font-family: var(--mono); font-size: 11px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: #fff;
   text-decoration: underline;
   text-underline-offset: 4px;
   text-decoration-thickness: 1px;
-  text-decoration-color: color-mix(in oklab, var(--gold) 50%, transparent);
+  text-decoration-color: rgba(255, 255, 255, 0.4);
   white-space: nowrap;
   padding: 4px 6px;
   transition: all .2s ease;
@@ -160,8 +160,8 @@ p  { margin: 0; color: var(--ink-dim); }
 }
 @media (min-width: 720px) { .nav-forum-link { display: inline-flex; font-size: 12px; } }
 .nav-forum-link:hover {
-  color: var(--gold-bright);
-  text-decoration-color: var(--gold-bright);
+  color: var(--gold);
+  text-decoration-color: var(--gold);
   letter-spacing: 0.08em;
 }
 
