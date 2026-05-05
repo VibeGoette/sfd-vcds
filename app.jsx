@@ -36,11 +36,13 @@ function App() {
       <nav className="nav">
         <div className="wrap nav-inner">
           <div className="brand brand-logo-stack">
-            <a href="https://vcds.de" aria-label="Zur VCDS.de-Startseite">
-              <img src="vcds-de-logo.png" alt="VCDS.de" className="brand-logo"/>
+            <a href="#top" aria-label="Zum Seitenanfang" className="brand-logo-link">
+              <img src="vcds-de-logo.png" alt="VCDS.de Online-SFD" className="brand-logo"/>
             </a>
             <span className="divider"></span>
-            <span className="tag">Online-SFD</span>
+            <a href="https://vcds.de" target="_blank" rel="noopener" className="brand-vcds-link">
+              Zur VCDS-Startseite ↗
+            </a>
           </div>
           <div className="nav-links">
             <a href="#loesung">Funktionsweise</a>
@@ -91,7 +93,7 @@ function App() {
       </nav>
 
       {/* === Hero === */}
-      <section className="hero" data-screen-label="01 Hero">
+      <section id="top" className="hero" data-screen-label="01 Hero">
         <div className="wrap">
           <div className="hero-grid">
             <div>

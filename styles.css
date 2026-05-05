@@ -78,22 +78,68 @@ p  { margin: 0; color: var(--ink-dim); }
 }
 .nav-inner {
   display: flex; align-items: center; justify-content: space-between;
-  height: 60px; gap: 12px;
+  height: 72px; gap: 14px;
 }
-@media (min-width: 720px) { .nav-inner { height: 76px; } }
-.brand { display: flex; align-items: center; gap: 10px; font-family: var(--mono); font-weight: 600; font-size: 14px; letter-spacing: 0.04em; min-width: 0; }
-.brand-logo { height: 26px; width: auto; display: block; flex-shrink: 0; filter: brightness(0) invert(1); }
-@media (min-width: 720px) { .brand-logo { height: 38px; } }
-.brand-logo-stack { display: flex; align-items: center; gap: 10px; min-width: 0; }
-.brand-logo-stack .divider { width: 1px; height: 18px; background: var(--gold); flex-shrink: 0; }
-.brand-logo-stack .tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); white-space: nowrap; }
-@media (min-width: 720px) { .brand-logo-stack .tag { font-size: 11px; } }
+@media (min-width: 720px) { .nav-inner { height: 96px; gap: 18px; } }
+@media (min-width: 1100px) { .nav-inner { height: 120px; gap: 24px; } }
+.brand { display: flex; align-items: center; gap: 14px; font-family: var(--mono); font-weight: 600; font-size: 14px; letter-spacing: 0.04em; min-width: 0; }
+.brand-logo-link {
+  display: inline-flex; align-items: center;
+  border-radius: 4px;
+  transition: transform .25s ease, filter .25s ease;
+}
+.brand-logo-link:hover {
+  transform: scale(1.03);
+  filter: drop-shadow(0 0 12px color-mix(in oklab, var(--gold) 50%, transparent));
+}
+.brand-logo {
+  height: 48px; width: auto; display: block; flex-shrink: 0;
+  filter: brightness(0) invert(1);
+  transition: filter .25s ease;
+}
+@media (min-width: 720px) { .brand-logo { height: 78px; } }
+@media (min-width: 1100px) { .brand-logo { height: 120px; } }
+.brand-logo-stack { display: flex; align-items: center; gap: 14px; min-width: 0; }
+.brand-logo-stack .divider { width: 1px; height: 32px; background: var(--gold); flex-shrink: 0; opacity: 0.6; }
+@media (min-width: 1100px) { .brand-logo-stack .divider { height: 44px; } }
+
+.brand-vcds-link {
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: color-mix(in oklab, var(--gold) 50%, transparent);
+  white-space: nowrap;
+  transition: all .2s ease;
+  display: none;
+}
+@media (min-width: 720px) { .brand-vcds-link { display: inline-flex; font-size: 12px; } }
+.brand-vcds-link:hover {
+  color: var(--gold-bright);
+  text-decoration-color: var(--gold-bright);
+  letter-spacing: 0.08em;
+}
+
 .nav-links { display: none; gap: 24px; font-size: 14px; color: rgba(255, 255, 255, 0.85); }
 @media (min-width: 980px) { .nav-links { display: flex; } }
-.nav-links a { color: rgba(255, 255, 255, 0.85); transition: color .18s ease; }
+.nav-links a { color: rgba(255, 255, 255, 0.85); transition: color .18s ease; position: relative; }
+.nav-links a::after {
+  content: ""; position: absolute;
+  left: 0; right: 0; bottom: -4px;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .25s ease;
+}
 .nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after { transform: scaleX(1); }
 .nav-links .forum-link { color: var(--gold); }
 .nav-links .forum-link:hover { color: var(--gold-bright); }
+.nav-links .forum-link::after { background: var(--gold-bright); }
 
 .nav-ctas { display: inline-flex; align-items: center; gap: 8px; flex-shrink: 0; }
 
@@ -106,7 +152,11 @@ p  { margin: 0; color: var(--ink-dim); }
   transition: all .18s ease;
 }
 @media (min-width: 720px) { .nav-cta { font-size: 12px; padding: 8px 14px; } }
-.nav-cta:hover { border-color: var(--gold); color: var(--gold); }
+.nav-cta:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--gold) 18%, transparent);
+}
 
 .nav-cta-shop {
   font-family: var(--mono); font-size: 11px; font-weight: 600;
@@ -173,7 +223,7 @@ p  { margin: 0; color: var(--ink-dim); }
 }
 .trust-item {
   flex: 0 0 auto;
-  min-width: max(280px, 30vw);
+  min-width: max(360px, 33vw);
   padding: 22px 36px;
   border-right: 1px solid color-mix(in oklab, var(--accent) 12%, var(--line));
   display: flex; align-items: center; gap: 14px;
@@ -181,7 +231,7 @@ p  { margin: 0; color: var(--ink-dim); }
   position: relative;
 }
 @media (max-width: 720px) {
-  .trust-item { padding: 18px 24px; }
+  .trust-item { min-width: 280px; padding: 18px 24px; }
 }
 .trust-item-link {
   background: color-mix(in oklab, var(--accent) 5%, var(--accent-soft));

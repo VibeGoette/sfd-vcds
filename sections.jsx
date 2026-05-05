@@ -440,7 +440,10 @@ function FinalCTA() {
               Direkt zum Forum von Ross-Tech <span className="arrow"><Icon.ArrowRight/></span>
             </a>
             <a href="#voraussetzungen" className="btn btn-secondary">Voraussetzungen prüfen</a>
-            <button className="btn btn-secondary btn-mono" onClick={() => window.open("https://www.ross-tech.com/vcds/download/beta/26-5.php", "_blank")}>↓ Beta&nbsp;26.5 herunterladen ↗</button>
+            <a href="https://www.ross-tech.com/vcds/download/beta/26-5.php" target="_blank" rel="noopener"
+               className="btn btn-secondary btn-mono btn-download-link">
+              ↓ <span className="download-link-text">Beta&nbsp;26.5 herunterladen</span> ↗
+            </a>
           </div>
         </div>
       </div>
