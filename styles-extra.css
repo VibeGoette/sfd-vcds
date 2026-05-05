@@ -846,32 +846,17 @@ h1, h2, h3, h4, p, .lead, strong, li, td, th {
 @media (min-width: 720px) {
   /* sec-head war 80px oben / 40px unten — viel Luft auf Desktop */
   .sec-head { padding: 56px 0 28px !important; }
-
-  /* Inline paddingBottom: 80 wird auf 48 reduziert auf Desktop */
-  .wrap[style*="padding-bottom: 80"],
-  .wrap-tight[style*="padding-bottom: 80"] {
-    padding-bottom: 48px !important;
-  }
 }
 
 /* Auf großen Screens (≥1100px) noch etwas mehr Luft, aber weniger als vorher */
 @media (min-width: 1100px) {
   .sec-head { padding: 64px 0 32px !important; }
-  .wrap[style*="padding-bottom: 80"],
-  .wrap-tight[style*="padding-bottom: 80"] {
-    padding-bottom: 56px !important;
-  }
 }
 
 /* ============ Horizontal-Overflow-Schutz (alle Sections) ============ */
 html, body {
   overflow-x: hidden;
   max-width: 100%;
-}
-
-/* Verhindert dass irgendein einzelnes Element breiter als der Viewport wird */
-section, .wrap, .wrap-tight {
-  max-width: 100vw;
 }
 
 /* Inline-Style padding-bottom: 80 — Selector matched jetzt mit + ohne Leerzeichen */
