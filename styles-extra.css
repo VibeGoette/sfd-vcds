@@ -876,3 +876,23 @@ html, body {
     padding-bottom: 56px !important;
   }
 }
+
+/* ============ Wide-Screen Wrap Skalierung ============ */
+/* Default ≥1240px → 1240px (aus styles.css). Auf größeren Screens
+   skalieren wir hoch, damit nicht 340px+ Whitespace links/rechts
+   den Eindruck eines 'rechts-versetzten' Layouts erzeugt. */
+@media (min-width: 1440px) {
+  .wrap { max-width: 1360px; }
+}
+@media (min-width: 1700px) {
+  .wrap { max-width: 1480px; }
+}
+@media (min-width: 1920px) {
+  .wrap { max-width: 1560px; }
+}
+
+/* Headline auf wide Screens etwas mehr Breite, sonst wirkt 22ch
+   restriktiv — Headline bricht zu früh um */
+@media (min-width: 1440px) {
+  .sec-head h2 { max-width: 26ch; }
+}
