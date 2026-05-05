@@ -44,10 +44,10 @@ function App() {
               Zur VCDS-Startseite ↗
             </a>
           </div>
-          <div className="nav-links">
-            <a href="https://forums.ross-tech.com/index.php?threads/54647/" target="_blank" rel="noopener" className="forum-link">Forum ↗</a>
-          </div>
           <div className="nav-ctas">
+            <a href="https://forums.ross-tech.com/index.php?threads/54647/" target="_blank" rel="noopener" className="nav-forum-link">
+              Forum ↗
+            </a>
             <a href="https://www.auto-intern.de/shop/vcds/" target="_blank" rel="noopener" className="nav-cta-shop">
               Shop ↗
             </a>
