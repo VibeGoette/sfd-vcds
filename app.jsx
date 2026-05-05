@@ -45,12 +45,6 @@ function App() {
             </a>
           </div>
           <div className="nav-links">
-            <a href="#loesung">Funktionsweise</a>
-            <a href="#vergleich">SFD1 vs. SFD2</a>
-            <a href="#eignung">Eignungs-Check</a>
-            <a href="#voraussetzungen">Voraussetzungen</a>
-            <a href="#ablauf">Ablauf</a>
-            <a href="#faq">FAQ</a>
             <a href="https://forums.ross-tech.com/index.php?threads/54647/" target="_blank" rel="noopener" className="forum-link">Forum ↗</a>
           </div>
           <div className="nav-ctas">
@@ -73,12 +67,6 @@ function App() {
         {menuOpen && (
           <div className="nav-mobile" onClick={() => setMenuOpen(false)}>
             <div className="nav-mobile-inner" onClick={e => e.stopPropagation()}>
-              <a href="#loesung" onClick={() => setMenuOpen(false)}>Funktionsweise</a>
-              <a href="#vergleich" onClick={() => setMenuOpen(false)}>SFD1 vs. SFD2</a>
-              <a href="#eignung" onClick={() => setMenuOpen(false)}>Eignungs-Check</a>
-              <a href="#voraussetzungen" onClick={() => setMenuOpen(false)}>Voraussetzungen</a>
-              <a href="#ablauf" onClick={() => setMenuOpen(false)}>Ablauf</a>
-              <a href="#faq" onClick={() => setMenuOpen(false)}>FAQ</a>
               <a href="https://forums.ross-tech.com/index.php?threads/54647/" target="_blank" rel="noopener" className="forum-link">Forum-Thread ↗</a>
               <a href="https://www.ross-tech.com/vcds/download/beta/26-5.php" target="_blank" rel="noopener">Beta 26.5 Download ↗</a>
               <a href="https://www.auto-intern.de/shop/vcds/" target="_blank" rel="noopener" className="mobile-cta-shop">
