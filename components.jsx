@@ -216,12 +216,10 @@ function TrustItem({ item, keyId }) {
 }
 
 function TrustMarquee() {
-  // Items 2x für nahtloses translateX(-50%) Loop
-  const doubled = [...TRUST_ITEMS, ...TRUST_ITEMS];
   return (
     <section className="trust-section" aria-label="Vertrauenssignale">
       <div className="trust-track">
-        {doubled.map((it, i) => (
+        {TRUST_ITEMS.map((it, i) => (
           <TrustItem key={i} keyId={i} item={it}/>
         ))}
       </div>

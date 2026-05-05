@@ -217,7 +217,7 @@ p  { margin: 0; color: var(--ink-dim); }
 .btn:hover .arrow { transform: translateX(3px); }
 
 /* === Trust bar === */
-/* === Trust Bar — Full-width Marquee === */
+/* === Trust Bar — Statischer Full-width Banner === */
 .trust-section {
   width: 100%;
   background: var(--accent-soft);
@@ -228,32 +228,35 @@ p  { margin: 0; color: var(--ink-dim); }
 }
 .trust-track {
   display: flex;
-  width: max-content;
-  animation: trustMarquee 90s linear infinite;
-  will-change: transform;
-}
-.trust-section:hover .trust-track,
-.trust-track:focus-within {
-  animation-play-state: paused;
-}
-@keyframes trustMarquee {
-  from { transform: translate3d(0, 0, 0); }
-  to   { transform: translate3d(-50%, 0, 0); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .trust-track { animation: none; }
+  width: 100%;
 }
 .trust-item {
-  flex: 0 0 auto;
-  min-width: max(360px, 33vw);
-  padding: 22px 36px;
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 22px 28px;
   border-right: 1px solid color-mix(in oklab, var(--accent) 12%, var(--line));
   display: flex; align-items: center; gap: 14px;
   text-decoration: none; color: inherit;
   position: relative;
 }
+.trust-item:last-child { border-right: none; }
 @media (max-width: 720px) {
-  .trust-item { min-width: 280px; padding: 18px 24px; }
+  .trust-track { flex-wrap: wrap; }
+  .trust-item {
+    flex: 1 1 50%;
+    padding: 16px 18px;
+    border-right: 1px solid color-mix(in oklab, var(--accent) 12%, var(--line));
+    border-bottom: 1px solid color-mix(in oklab, var(--accent) 12%, var(--line));
+  }
+  .trust-item:nth-child(2n) { border-right: none; }
+  .trust-item:nth-last-child(-n+2) { border-bottom: none; }
+}
+@media (max-width: 480px) {
+  .trust-item {
+    flex: 1 1 100%;
+    border-right: none;
+  }
+  .trust-item:not(:last-child) { border-bottom: 1px solid color-mix(in oklab, var(--accent) 12%, var(--line)); }
 }
 .trust-item-link {
   background: color-mix(in oklab, var(--accent) 5%, var(--accent-soft));
