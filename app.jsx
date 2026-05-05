@@ -90,7 +90,7 @@ function App() {
               <div className="hero-meta">
                 <span className="beta-badge">
                   <span className="pulse"/>
-                  Public Beta · seit 01.05.2026
+                  Public Beta · erschienen im Mai 2026
                 </span>
               </div>
               <h1>SFD-Schutz freischalten.<br/>Mit&nbsp;VCDS. <em>Online.</em></h1>
@@ -141,7 +141,7 @@ function App() {
               <div className="trust-icon"><Icon.Beta/></div>
               <div className="trust-text">
                 <strong>Public Beta</strong><br/>
-                seit 01.05.2026 verfügbar
+                erschienen im Mai 2026
               </div>
             </div>
           </div>

@@ -462,7 +462,7 @@ function Footer() {
               <span className="tag">Online-SFD</span>
             </div>
             <p style={{maxWidth: 44 + "ch", marginTop: 14, fontSize: 13}}>
-              Online-Freischaltung für SFD-geschützte Steuergeräte aus dem VAG-Konzern. Public Beta seit 01.05.2026.
+              Online-Freischaltung für SFD-geschützte Steuergeräte aus dem VAG-Konzern. Public Beta, erschienen im Mai 2026.
             </p>
           </div>
           <div>
