@@ -177,4 +177,56 @@ function HeroTerminal() {
   );
 }
 
-Object.assign(window, { Icon, HeroTerminal });
+/* ===== Trust Marquee ===== */
+const TRUST_ITEMS = [
+  { type: "shield",   title: "Offiziell durch Ross-Tech",  sub: "Hersteller von VCDS" },
+  { type: "hardware", title: "HEX-NET & HEX-V2",           sub: "mit Beta-Firmware" },
+  { type: "beta",     title: "Public Beta",                sub: "erschienen im Mai 2026" },
+  { type: "telegram", title: "Community auf Telegram",     sub: "t.me/vcdsde",
+    href: "https://t.me/vcdsde", linkText: "t.me/vcdsde" },
+];
+
+function TrustItem({ item, keyId }) {
+  const iconMap = {
+    shield:   <Icon.Shield/>,
+    hardware: <Icon.Hardware/>,
+    beta:     <Icon.Beta/>,
+    telegram: <Icon.Telegram/>,
+  };
+  const inner = (
+    <>
+      <div className="trust-icon">{iconMap[item.type]}</div>
+      <div className="trust-text">
+        <strong>{item.title}</strong>
+        {item.linkText
+          ? <span className="trust-link-url">{item.linkText}</span>
+          : item.sub}
+      </div>
+    </>
+  );
+  if (item.href) {
+    return (
+      <a key={keyId} href={item.href} target="_blank" rel="noopener"
+         className="trust-item trust-item-link" aria-label={`${item.title} — ${item.sub}`}>
+        {inner}
+      </a>
+    );
+  }
+  return <div key={keyId} className="trust-item">{inner}</div>;
+}
+
+function TrustMarquee() {
+  // Items 2x für nahtloses translateX(-50%) Loop
+  const doubled = [...TRUST_ITEMS, ...TRUST_ITEMS];
+  return (
+    <section className="trust-section" aria-label="Vertrauenssignale">
+      <div className="trust-track">
+        {doubled.map((it, i) => (
+          <TrustItem key={i} keyId={i} item={it}/>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+Object.assign(window, { Icon, HeroTerminal, TrustMarquee });

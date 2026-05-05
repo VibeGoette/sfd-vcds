@@ -128,40 +128,11 @@ function App() {
                 : <VCDSScreenshot/>}
             </div>
           </div>
-
-          {/* Trust bar */}
-          <div className="trust">
-            <div className="trust-item">
-              <div className="trust-icon"><Icon.Shield/></div>
-              <div className="trust-text">
-                <strong>Offiziell durch Ross-Tech</strong><br/>
-                Hersteller von VCDS
-              </div>
-            </div>
-            <div className="trust-item">
-              <div className="trust-icon"><Icon.Hardware/></div>
-              <div className="trust-text">
-                <strong>HEX-NET & HEX-V2</strong><br/>
-                mit Beta-Firmware
-              </div>
-            </div>
-            <div className="trust-item">
-              <div className="trust-icon"><Icon.Beta/></div>
-              <div className="trust-text">
-                <strong>Public Beta</strong><br/>
-                erschienen im Mai 2026
-              </div>
-            </div>
-            <a href="https://t.me/vcdsde" target="_blank" rel="noopener" className="trust-item trust-item-link">
-              <div className="trust-icon"><Icon.Telegram/></div>
-              <div className="trust-text">
-                <strong>Community auf Telegram</strong><br/>
-                t.me/vcdsde
-              </div>
-            </a>
-          </div>
         </div>
       </section>
+
+      {/* === Trust Bar — Full-width Marquee === */}
+      <TrustMarquee/>
 
       <ProblemSection/>
       <LoesungSection/>

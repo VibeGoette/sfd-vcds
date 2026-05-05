@@ -145,51 +145,92 @@ p  { margin: 0; color: var(--ink-dim); }
 .btn:hover .arrow { transform: translateX(3px); }
 
 /* === Trust bar === */
-.trust {
-  display: grid; grid-template-columns: 1fr;
-  gap: 0;
+/* === Trust Bar — Full-width Marquee === */
+.trust-section {
+  width: 100%;
+  background: var(--accent-soft);
   border-top: 1px solid color-mix(in oklab, var(--accent) 22%, var(--line));
   border-bottom: 1px solid color-mix(in oklab, var(--accent) 22%, var(--line));
-  background: var(--accent-soft);
-  margin-top: 48px;
+  overflow: hidden;
+  position: relative;
 }
-@media (min-width: 800px) { .trust { grid-template-columns: repeat(2, 1fr); margin-top: 64px; } }
-@media (min-width: 1100px) { .trust { grid-template-columns: repeat(4, 1fr); } }
+.trust-track {
+  display: flex;
+  width: max-content;
+  animation: trustMarquee 90s linear infinite;
+  will-change: transform;
+}
+.trust-section:hover .trust-track,
+.trust-track:focus-within {
+  animation-play-state: paused;
+}
+@keyframes trustMarquee {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .trust-track { animation: none; }
+}
 .trust-item {
-  padding: 18px 22px;
-  border-bottom: 1px solid var(--line);
+  flex: 0 0 auto;
+  min-width: 320px;
+  padding: 22px 36px;
+  border-right: 1px solid color-mix(in oklab, var(--accent) 12%, var(--line));
   display: flex; align-items: center; gap: 14px;
+  text-decoration: none; color: inherit;
+  position: relative;
 }
-@media (min-width: 800px) {
-  .trust-item { padding: 24px 28px; border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); }
-  .trust-item:nth-child(2n) { border-right: none; }
-  .trust-item:nth-last-child(-n+2) { border-bottom: none; }
-}
-@media (min-width: 1100px) {
-  .trust-item { border-bottom: none; border-right: 1px solid var(--line); }
-  .trust-item:nth-child(2n) { border-right: 1px solid var(--line); }
-  .trust-item:last-child { border-right: none; }
+@media (max-width: 720px) {
+  .trust-item { min-width: 280px; padding: 18px 24px; }
 }
 .trust-item-link {
-  text-decoration: none; color: inherit;
-  transition: background .18s ease, transform .18s ease;
+  background: color-mix(in oklab, var(--accent) 5%, var(--accent-soft));
+  cursor: pointer;
+  transition: background .25s ease;
+}
+.trust-item-link::after {
+  content: "↗";
+  position: absolute;
+  top: 50%; right: 18px;
+  transform: translateY(-50%);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--accent);
+  opacity: 0.55;
+  transition: all .2s ease;
 }
 .trust-item-link:hover {
-  background: color-mix(in oklab, var(--accent) 6%, var(--accent-soft));
+  background: color-mix(in oklab, var(--accent) 14%, var(--accent-soft));
+}
+.trust-item-link:hover::after {
+  opacity: 1;
+  transform: translate(3px, calc(-50% - 3px));
 }
 .trust-item-link:hover .trust-icon {
   background: var(--accent);
-  color: var(--white, #fff);
+  color: #fff;
 }
-.trust-item:last-child { border-bottom: none; }
+.trust-link-url {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: color-mix(in oklab, var(--accent) 60%, transparent);
+  color: var(--accent);
+  font-weight: 500;
+  transition: text-decoration-color .2s ease;
+}
+.trust-item-link:hover .trust-link-url {
+  text-decoration-color: var(--accent);
+}
 .trust-icon {
   width: 36px; height: 36px; flex-shrink: 0;
   display: grid; place-items: center;
   background: color-mix(in oklab, var(--accent) 14%, transparent);
   color: var(--accent); border-radius: 4px;
+  transition: all .25s ease;
 }
 .trust-text { font-size: 13.5px; color: var(--ink-dim); line-height: 1.4; }
-.trust-text strong { color: var(--ink); font-weight: 500; }
+.trust-text strong { color: var(--ink); font-weight: 500; display: block; margin-bottom: 2px; }
 
 /* === Hero === */
 .hero { padding: 32px 0 32px; position: relative; overflow: hidden; }
