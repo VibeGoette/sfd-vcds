@@ -279,3 +279,21 @@
 /* Hero adjustments for software mockup */
 .hero-grid { align-items: center; }
 @media (max-width: 980px) { .hero-grid { align-items: start; } }
+
+/* Footer Telegram-Link — Akzent-Highlight */
+.footer-telegram-link {
+  display: inline-flex; align-items: center;
+  padding: 10px 14px;
+  background: color-mix(in oklab, var(--accent) 12%, transparent);
+  border: 1px solid color-mix(in oklab, var(--accent) 30%, var(--line));
+  border-radius: 4px;
+  color: var(--ink) !important;
+  font-weight: 500;
+  font-size: 13.5px;
+  transition: all .18s ease;
+}
+.footer-telegram-link:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff !important;
+}

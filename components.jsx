@@ -65,6 +65,11 @@ const Icon = {
       <path d="M7 7h.01M7 17h.01"/>
     </svg>
   ),
+  Telegram: (p) => (
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <path d="M21.5 3.5L2.5 11l6 2.2L17 6.5l-7 8.5v4l3-3 4 3 4.5-15.5z"/>
+    </svg>
+  ),
 };
 
 /* === Hero terminal — animated auto-scan === */

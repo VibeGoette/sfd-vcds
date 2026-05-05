@@ -479,6 +479,13 @@ function Footer() {
           <div>
             <h4>Auto-Intern GmbH</h4>
             <ul>
+              <li style={{marginBottom: 12}}>
+                <a href="https://t.me/vcdsde" target="_blank" rel="noopener" className="footer-telegram-link">
+                  <span style={{display: "inline-flex", alignItems: "center", gap: 8}}>
+                    <Icon.Telegram/> Community auf Telegram ↗
+                  </span>
+                </a>
+              </li>
               <li><a href="#impressum">Impressum</a></li>
               <li><a href="#datenschutz">Datenschutz</a></li>
               <li><a href="#kontakt">Kontakt</a></li>

@@ -144,6 +144,13 @@ function App() {
                 erschienen im Mai 2026
               </div>
             </div>
+            <a href="https://t.me/vcdsde" target="_blank" rel="noopener" className="trust-item trust-item-link">
+              <div className="trust-icon"><Icon.Telegram/></div>
+              <div className="trust-text">
+                <strong>Community auf Telegram</strong><br/>
+                t.me/vcdsde
+              </div>
+            </a>
           </div>
         </div>
       </section>
