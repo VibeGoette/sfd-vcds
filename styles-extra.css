@@ -684,9 +684,12 @@ h1, h2, h3, h4, p, .lead, strong, li, td, th {
 
 /* Disclaimer */
 .footer-disclaimer {
+  background: transparent !important;
+  border-left: none !important;
+  border-radius: 0 !important;
   color: rgba(255, 255, 255, 0.6) !important;
   border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
-  padding-top: 24px;
+  padding: 24px 0 0 !important;
   margin-top: 32px;
 }
 .footer-disclaimer strong {
